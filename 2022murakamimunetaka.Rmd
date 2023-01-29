@@ -692,7 +692,7 @@ ggplot10p <-
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
             fill = "palegreen", colour = "black", alpha = 0.001) 
-ggplot09p + ggplot10p 
+ggplot10p + ggplot09p 
 ```
 
 ```{r fig.width=7,fig.height=3,fig.align = 'center'}
@@ -723,7 +723,7 @@ ggplot12p <-
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
             fill = "palegreen", colour = "black", alpha = 0.001) 
-ggplot11p + ggplot12p 
+ggplot12p + ggplot11p 
 ```
 
 ```{r fig.width=7,fig.height=3,fig.align = 'center'}
@@ -754,7 +754,7 @@ ggplot14p <-
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
             fill = "palegreen", colour = "black", alpha = 0.001) 
-ggplot13p + ggplot14p 
+ggplot14p + ggplot13p 
 ```
 
 
