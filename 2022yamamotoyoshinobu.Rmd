@@ -97,7 +97,7 @@ ggplot01p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003) 
+            fill = "palegreen", colour = "black", alpha = 0.001) 
 #
 # 投手名10a 全投球内容 散布図(右打者)
 pitch_wk02h <- paste("投球データ (対右打者)")
@@ -112,7 +112,7 @@ ggplot02p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003) 
+            fill = "palegreen", colour = "black", alpha = 0.001) 
 #
 # 投手名10a 全投球内容 散布図(左打者)
 pitch_wk03h <- paste("投球データ (対左打者)")
@@ -127,7 +127,7 @@ ggplot03p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003) 
+            fill = "palegreen", colour = "black", alpha = 0.001) 
 #
 pitch_wk04 <- filter(pitch_wk01, 結果球 == "*" )
 pitch_wk05 <- filter(pitch_wk02, 結果球 == "*" )
@@ -148,7 +148,7 @@ ggplot04p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003)
+            fill = "palegreen", colour = "black", alpha = 0.001)
 #
 # 投手名10a 全投球内容 散布図(結果球)
 pitch_wk05h <- paste("投球データ (対右打者)")
@@ -163,7 +163,7 @@ ggplot05p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003)
+            fill = "palegreen", colour = "black", alpha = 0.001)
 #
 # 投手名10a 全投球内容 散布図(結果球)
 pitch_wk06h <- paste("投球データ (対左打者)")
@@ -178,7 +178,7 @@ ggplot06p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003)
+            fill = "palegreen", colour = "black", alpha = 0.001)
 ```
 
 
@@ -514,7 +514,7 @@ Column {data-width=350}
 -----------------------------------------------------------------------
 
 # 球速帯 {data-navmenu="投球結果"}
-```{r}
+```{r }
 prslt6_tab1 <- paste("投球結果/球速")
 prslt6_tab2 <- paste("投球結果/球速(%)")
 prslt6 <- table(pitch_wk01$球速帯,pitch_wk01$結果2) %>% 
@@ -630,7 +630,6 @@ ggplot07w
 ```
 
 
-
 ```{r fig.width=10,fig.height=5,fig.align = 'center'}
 ggplot08w
 ```
@@ -639,14 +638,15 @@ Column {data-width=350}
 -----------------------------------------------------------------------
 
 # 球速 {data-navmenu="投球コース"}
+
 ```{r fig.width=7,fig.height=6,fig.align = 'center'}
 ggplot02p + facet_wrap(~球種,ncol=3) + labs(colour = "km/h")
 ```
 
+
 ```{r fig.width=7,fig.height=6,fig.align = 'center'}
 ggplot03p + facet_wrap(~球種,ncol=3) + labs(colour = "km/h")
 ```
-
 
 Column {data-width=350}
 -----------------------------------------------------------------------
@@ -677,7 +677,7 @@ ggplot09p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003) 
+            fill = "palegreen", colour = "black", alpha = 0.001) 
 #
 ggplot10p <- 
   ggplot(pitch_wk03,aes(x = X, y = Y, colour = 球種 )) + 
@@ -689,15 +689,15 @@ ggplot10p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003) 
-ggplot09p + ggplot10p 
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+ggplot10p + ggplot09p 
 ```
 
 ```{r fig.width=7,fig.height=3,fig.align = 'center'}
 pitch_wk11 <- filter(pitch_wk02, 結果7 == "contact" )
 pitch_wk11h <- paste("投球データ(対右打者contact)")
 pitch_wk12 <- filter(pitch_wk03, 結果7 == "contact" )
-pitch_wk12h <- paste("投球データ(対右打者contact)")
+pitch_wk12h <- paste("投球データ(対左打者contact)")
 ggplot11p <- 
   ggplot(pitch_wk11,aes(x = X, y = Y, colour = 球種 )) + 
   geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
@@ -708,7 +708,7 @@ ggplot11p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003) 
+            fill = "palegreen", colour = "black", alpha = 0.001) 
 #
 ggplot12p <- 
   ggplot(pitch_wk12,aes(x = X, y = Y, colour = 球種 )) + 
@@ -720,15 +720,15 @@ ggplot12p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003) 
-ggplot11p + ggplot12p 
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+ggplot12p + ggplot11p 
 ```
 
 ```{r fig.width=7,fig.height=3,fig.align = 'center'}
 pitch_wk13 <- filter(pitch_wk02, 結果6 == "swstr"  )
 pitch_wk13h <- paste("投球データ(対右打者swstr)")
 pitch_wk14 <- filter(pitch_wk03, 結果6 == "swstr"  )
-pitch_wk14h <- paste("投球データ(対右打者swstr)")
+pitch_wk14h <- paste("投球データ(対左打者swstr)")
 ggplot13p <- 
   ggplot(pitch_wk13,aes(x = X, y = Y, colour = 球種 )) + 
   geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
@@ -739,7 +739,7 @@ ggplot13p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003) 
+            fill = "palegreen", colour = "black", alpha = 0.001) 
 #
 ggplot14p <- 
   ggplot(pitch_wk14,aes(x = X, y = Y, colour = 球種 )) + 
@@ -751,8 +751,8 @@ ggplot14p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003) 
-ggplot13p + ggplot14p 
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+ggplot14p + ggplot13p 
 ```
 
 
@@ -773,7 +773,7 @@ ggplot15p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003)
+            fill = "palegreen", colour = "black", alpha = 0.001)
 ggplot15p + facet_wrap(~打者名, ncol=5)
 ```
 
@@ -794,7 +794,7 @@ ggplot16p <-
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
-            fill = "palegreen", colour = "black", alpha = 0.003)
+            fill = "palegreen", colour = "black", alpha = 0.001)
 ggplot16p + facet_wrap(~打者名, ncol=5)
 ```
 
