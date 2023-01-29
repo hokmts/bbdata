@@ -1,0 +1,104 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library("flexdashboard")
+library("rvest")
+library("dplyr")
+library("tidyverse")
+library("openxlsx")
+library("ggplot2")
+library("patchwork")
+library("knitr")
+library("kableExtra")
+library("tidyverse")
+library("cowplot")
+library("gridExtra")
+library("gganimate")
+#library("transformr")
+library("gifski")
+library("gt")
+library("DT")
+library("readxl")
+# data load & pacific central data merge
+batc_data<-  read_xlsx("~/Public/baseball/2022/02data/02league/bat_c_2022cl.xlsx",
+                        sheet = 'Sheet1')
+```
+
+
+-----------------------------------------------------------------------
+
+### player
+
+```{r}
+valueBox(paste(batc_data$選手[1]))
+```
+
+### 打率
+
+```{r}
+valueBox(paste(batc_data$打率[1] ), 
+         color = ifelse(batc_data$ops[1] > 1, "warning", "primary"))
+```
+
+
+### ops
+
+```{r}
+valueBox(batc_data$ops[1])
+```
+
+### Iso
+
+```{r}
+valueBox(batc_data$Iso[1])
+```
+
+### HR%
+
+```{r}
+valueBox(batc_data$`HR%`[1])
+```
+
+### K%
+
+```{r}
+valueBox(batc_data$`K%`[1])
+```
+
+### BB%
+
+```{r}
+valueBox(batc_data$`BB%`[1])
+```
+
+### wOBA
+
+```{r}
+valueBox(batc_data$wOBA[1])
+```
+
+### wRAA
+
+```{r}
+valueBox(batc_data$wRAA[1])
+```
+
+### wRC
+
+```{r}
+valueBox(batc_data$wRC[1])
+```
+
+### wRC+
+
+```{r}
+valueBox(batc_data$`wRC+`[1])
+```
+
+-----------------------------------------------------------------------

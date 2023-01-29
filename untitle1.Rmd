@@ -1,0 +1,204 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library("rvest")
+library("dplyr")
+library("tidyverse")
+library("openxlsx")
+library("ggplot2")
+library("patchwork")
+library("knitr")
+library("kableExtra")
+library("tidyverse")
+library("cowplot")
+library("gridExtra")
+library("gganimate")
+#library("transformr")
+library("gifski")
+library("gt")
+library("DT")
+library("readxl")
+# data load & pacific central data merge
+pitp_data<-  read_xlsx("~/Public/baseball/2022/02data/02league/pit_p_2022pl.xlsx",
+                        sheet = 'Sheet1')
+```
+
+row
+-----------------------------------------------------------------------
+
+### player
+
+```{r}
+valueBox(paste(pitp_data$投手[1]))
+```
+
+### 防御率
+
+```{r}
+gauge(pitp_data$防御率[1], min = 0, max = 5, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0,2), warning = c(3,4), danger = c(5,99)
+))
+```
+
+
+### FIP
+
+```{r}
+gauge(pitp_data$FIP[1], min = 0, max = 5,  abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0,2), warning = c(3,4), danger = c(5,99)
+))
+```
+
+
+### BABIP
+
+```{r}
+gauge(pitp_data$BABIP[1], min = 0, max = 0.5, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0,0.2), warning = c(0.3,0.4), danger = c(0.5,99)
+))
+```
+
+### K9
+
+```{r}
+gauge(pitp_data$K9[1], min = 0, max = 20, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(10,99), warning = c(5,9), danger = c(0,4)
+))
+```
+
+### BB9
+
+```{r}
+gauge(pitp_data$BB9[1], min = 0, max = 5, abbreviateDecimals = 2, 
+      gaugeSectors(success = c(0,2), warning = c(3,4), danger = c(5,99)
+))
+```
+
+### HR9
+
+```{r}
+gauge(pitp_data$HR9[1], min = 0, max = 1, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0,0.2), warning = c(0.3,0.4), danger = c(0.5,99)
+))
+```
+
+### H9
+
+```{r}
+gauge(pitp_data$H9[1], min = 0, max = 15, abbreviateDecimals = 2, 
+      gaugeSectors(success = c(0,3), warning = c(4,6), danger = c(7,99)
+))
+```
+
+
+### LOB
+
+```{r}
+gauge(pitp_data$LOB[1], min = 0, max = 1, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0.8,99), warning = c(0.6,0.7), danger = c(0,0.5)
+))
+```
+
+### K-BB%
+
+```{r}
+gauge(pitp_data$`K-BB%`[1], min = 0, max = 1, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0,0.2), warning = c(0.3,0.6), danger = c(0.7,99)
+))
+```
+
+-----------------------------------------------------------------------
+
+row
+-----------------------------------------------------------------------
+
+### player
+
+```{r}
+valueBox(paste(pitp_data$投手[2]))
+```
+
+### 防御率
+
+```{r}
+gauge(pitp_data$防御率[2], min = 0, max = 5, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0,2), warning = c(3,4), danger = c(5,99)
+))
+```
+
+
+### FIP
+
+```{r}
+gauge(pitp_data$FIP[2], min = 0, max = 5,  abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0,2), warning = c(3,4), danger = c(5,99)
+))
+```
+
+
+### BABIP
+
+```{r}
+gauge(pitp_data$BABIP[2], min = 0, max = 0.5, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0,0.2), warning = c(0.3,0.4), danger = c(0.5,99)
+))
+```
+
+### K9
+
+```{r}
+gauge(pitp_data$K9[2], min = 0, max = 20, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(10,99), warning = c(5,9), danger = c(0,4)
+))
+```
+
+### BB9
+
+```{r}
+gauge(pitp_data$BB9[2], min = 0, max = 5, abbreviateDecimals = 2, 
+      gaugeSectors(success = c(0,2), warning = c(3,4), danger = c(5,99)
+))
+```
+
+### HR9
+
+```{r}
+gauge(pitp_data$HR9[2], min = 0, max = 1, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0,0.2), warning = c(0.3,0.4), danger = c(0.5,99)
+))
+```
+
+### H9
+
+```{r}
+gauge(pitp_data$H9[2], min = 0, max = 15, abbreviateDecimals = 2, 
+      gaugeSectors(success = c(0,3), warning = c(4,6), danger = c(7,99)
+))
+```
+
+
+### LOB
+
+```{r}
+gauge(pitp_data$LOB[2], min = 0, max = 1, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0.8,99), warning = c(0.6,0.7), danger = c(0,0.5)
+))
+```
+
+### K-BB%
+
+```{r}
+gauge(pitp_data$`K-BB%`[2], min = 0, max = 1, abbreviateDecimals = 3, 
+      gaugeSectors(success = c(0,0.2), warning = c(0.3,0.6), danger = c(0.7,99)
+))
+```
+
+
+-----------------------------------------------------------------------
