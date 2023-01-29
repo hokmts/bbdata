@@ -7,7 +7,7 @@ output:
     orientation: columns
     vertical_layout: fill
     navbar:
-      - { title: "Home", href: "https://eloquent-pixie-729d17.netlify.app/"}
+      - { title: "Home", href: "https://hokmts23.netlify.app/"}
     social: [ "twitter","menu"]
 #default”, “bootstrap”, “cerulean”, “cosmo”, “darkly”, “flatly”, “journal”, “lumen”, “paper”, “readable”, “sandstone”, “simplex”, “spacelab”, “united”, “yeti”
 ---
