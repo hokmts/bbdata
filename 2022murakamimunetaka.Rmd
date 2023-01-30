@@ -3,11 +3,11 @@ title: "2022年 東京ヤクルトスワローズ 村上 宗隆 (公式戦)"
 author: "hokmts works"
 output: 
   flexdashboard::flex_dashboard:
-#    theme:
+    theme: spacelab
     orientation: columns
     vertical_layout: fill
     navbar:
-      - { title: "Home", href: "https://hokmts23.netlify.app/"}
+      - { title: "Home", href: "https://hokmts23.netlify.app/en/2022npb/"}
     social: [ "twitter","menu"]
 #default”, “bootstrap”, “cerulean”, “cosmo”, “darkly”, “flatly”, “journal”, “lumen”, “paper”, “readable”, “sandstone”, “simplex”, “spacelab”, “united”, “yeti”
 ---
