@@ -1,5 +1,5 @@
 ---
-title: "2022年 東京ヤクルトスワローズ 村上 宗隆 (公式戦)"
+title: "2022年 東京ヤクルトスワローズ 村上宗隆 (公式戦)"
 author: "hokmts works"
 output: 
   flexdashboard::flex_dashboard:
@@ -9,7 +9,14 @@ output:
     navbar:
       - { title: "Home", href: "https://hokmts23.netlify.app/en/2022npb/"}
     social: [ "twitter","menu"]
-#default”, “bootstrap”, “cerulean”, “cosmo”, “darkly”, “flatly”, “journal”, “lumen”, “paper”, “readable”, “sandstone”, “simplex”, “spacelab”, “united”, “yeti”
+#default”, “bootstrap”, “cerulean”, “cosmo”, “darkly”, “flatly”, “journal”, “lumen”, “paper”, #“readable”, “sandstone”, “simplex”, “spacelab”, “united”, “yeti”
+#村上宗隆,大島洋平,佐野恵太,宮﨑敏郎,ビシエド
+#近本光司,岡林勇希,牧秀悟,坂倉将吾,吉川尚輝
+#中野拓夢,塩見泰隆,丸佳浩,マクブルーム
+#オスナ,阿部寿樹,大山悠輔,小園海斗
+#佐藤輝明,菊池涼介,桑原将志,岡本和真
+#糸原健斗,木下拓哉,山田哲人,長岡秀樹
+#ポランコ
 ---
 
 ```{r setup, include=FALSE}
@@ -471,8 +478,8 @@ prslt2 <- table(pitch_wk02$結果2,pitch_wk02$球種) %>%
 prslt3 <- prslt2 / rowSums(prslt2)
 round((prslt3) *100,2) %>% 
   arrange(.,-空振り) %>% 
-  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野直,内野飛,外野飛,ファウル,ボール,失出塁,
-                振逃,everything()) %>% 
+  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野直,内野飛,外野飛,ファウル,ボール,
+                失出塁,振逃,everything()) %>% 
   kbl(.,caption = prslt3_tabh ) %>%
   kable_minimal(full_width = F)
 #
@@ -482,7 +489,8 @@ prslt2 <- table(pitch_wk03$結果2,pitch_wk03$球種) %>%
 prslt3 <- prslt2 / rowSums(prslt2)
 round((prslt3) *100,2) %>% 
   arrange(.,-空振り) %>% 
-  .[,c(6,12,9,10,11,3,4,5,7,1,2,8)] %>% 
+  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野直,内野飛,外野飛,ファウル,ボール,
+                失出塁,everything()) %>% 
   kbl(.,caption = prslt3_tabh ) %>%
   kable_minimal(full_width = F)
 #
@@ -494,7 +502,7 @@ prslt4 <- table(pitch_wk05$球種,pitch_wk05$結果2)
   rename(.data = . ,　"見三振" = "見逃し") %>% 
   rename(.data = . ,　"四球" = "ボール") %>% 
   arrange(.,-空三振) %>% 
-  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野直,内野飛,外野飛,四球,失出塁,振逃,
+  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野直,内野飛,外野飛,四球,失出塁,
                 everything()) %>%
   kbl(.,caption = prslt4_tabh ) %>%
   kable_minimal(full_width = F)
@@ -502,11 +510,12 @@ prslt4 <- table(pitch_wk05$球種,pitch_wk05$結果2)
 prslt5_tabh <- paste("対左投手/結果球(%)")
 prslt5 <- table(pitch_wk06$球種,pitch_wk06$結果2)
 (round(prop.table(prslt5,margin=1),4)*100) %>% 
-  .[,c(5,11,8,9,10,2,3,4,6,1)] %>% 
   as.data.frame.array() %>% 
   rename(.data = . ,　"空三振" = "空振り") %>% 
   rename(.data = . ,　"見三振" = "見逃し") %>% 
   rename(.data = . ,　"四球" = "ボール") %>% 
+  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野直,内野飛,外野飛,四球,失出塁,
+                everything()) %>%
   arrange(.,-空三振) %>% 
   kbl(.,caption = prslt5_tabh ) %>%
   kable_minimal(full_width = F)
@@ -521,7 +530,8 @@ prslt6_tab1 <- paste("投球結果/球速")
 prslt6_tab2 <- paste("投球結果/球速(%)")
 prslt6 <- table(pitch_wk01$球速帯,pitch_wk01$結果2) %>% 
   as.data.frame.array() %>% 
-  .[,c(6,13,10,11,12,3,4,5,7,1,2,8,9)]
+  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野直,内野飛,外野飛,ファウル,ボール,
+                失出塁,everything())
 rownames(prslt6) <- c("119km以下","120km台","130km台","140km台","150km台","NA")
 kbl(prslt6,caption = prslt6_tab1 ) %>%
   kable_minimal(full_width = F)
@@ -535,10 +545,11 @@ prslt7_tab1 <- paste("結果球/球速")
 prslt7_tab2 <- paste("結果球/球速(%)")
 prslt7 <- table(pitch_wk04$球速帯,pitch_wk04$結果2) %>% 
   as.data.frame.array() %>% 
-  .[,c(5,12,9,10,11,2,3,4,6,1,7,8)] %>% 
   rename(.data = . ,　"空三振" = "空振り") %>% 
   rename(.data = . ,　"見三振" = "見逃し") %>% 
-  rename(.data = . ,　"四球" = "ボール") 
+  rename(.data = . ,　"四球" = "ボール")  %>% 
+  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野直,内野飛,外野飛,四球,失出塁,
+                everything()) 
 rownames(prslt7) <- c("119km以下","120km台","130km台","140km台","150km台","NA")
 kbl(prslt7,caption = prslt7_tab1 ) %>%
   kable_minimal(full_width = F)
@@ -560,7 +571,8 @@ prslt8 <- table(pitch_wk01$結果2,pitch_wk01$投手チーム) %>%
 prslt8 <- prslt8 / rowSums(prslt8)
 round((prslt8) *100,2) %>% 
   arrange(.,-空振り) %>% 
-  .[,c(6,13,10,11,12,3,4,5,7,1,2,8,9)] %>% 
+  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野直,内野飛,外野飛,ファウル,ボール,
+                失出塁,everything()) %>%
   kbl(.,caption = prslt8_tabh ) %>%
   kable_minimal(full_width = F)
 #
@@ -570,10 +582,11 @@ prslt9 <- table(pitch_wk04$結果2,pitch_wk04$投手チーム) %>%
 prslt9 <- prslt9 / rowSums(prslt9)
 round((prslt9) *100,2) %>% 
   arrange(.,-空振り) %>% 
-  .[,c(5,12,9,10,11,2,3,4,6,1,7,8)] %>% 
   rename(.data = .,　"空三振" = "空振り") %>% 
   rename(.data = .,　"見三振" = "見逃し") %>% 
   rename(.data = .,　"四球" = "ボール") %>% 
+  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野直,内野飛,外野飛,四球,失出塁,
+                everything()) %>% 
   kbl(.,caption = prslt9_tabh ) %>%
   kable_minimal(full_width = F)
 ```
@@ -591,7 +604,8 @@ prslt10 <- prslt10 / rowSums(prslt10)
 round((prslt10) *100,2) %>% 
   format(., nsmall = 2) %>% 
   cbind(.,球数合計) %>% 
-  .[,c(6,13,10,11,12,3,4,5,7,1,2,8,9)] %>% 
+  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野直,内野飛,外野飛,ファウル,ボール,
+                失出塁,everything()) %>% 
   arrange(.,-球数合計) %>% 
   datatable(., 
             rownames = TRUE, caption = prslt10_tabh ,
@@ -611,10 +625,11 @@ prslt11 <- prslt11 / rowSums(prslt11)
 round((prslt11) *100,2) %>% 
   format(., nsmall = 2) %>% 
   cbind(.,球数合計) %>% 
-  .[,c(5,12,9,10,11,2,3,4,6,1,7,8)] %>% 
   rename(.data = .,　"空三振" = "空振り") %>% 
   rename(.data = .,　"見三振" = "見逃し") %>% 
   rename(.data = .,　"四球" = "ボール") %>% 
+  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野直,内野飛,外野飛,四球,失出塁,
+                everything()) %>% 
   arrange(.,-球数合計) %>% 
   format(., nsmall = 2) %>% 
   datatable(., 
@@ -758,25 +773,56 @@ ggplot14p + ggplot13p
 ```
 
 
+```{r fig.width=7,fig.height=3,fig.align = 'center'}
+pitch_wk15 <- filter(pitch_wk02, 結果2 == "単打" | 結果2 == "長打"| 結果2 == "本塁打"　)
+pitch_wk15h <- paste("投球データ(対右投手安打)")
+ggplot15p <- 
+  ggplot(pitch_wk15,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() + 
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk15h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+#
+pitch_wk16 <- filter(pitch_wk03, 結果2 == "単打" | 結果2 == "長打"| 結果2 == "本塁打"　)
+pitch_wk16h <- paste("投球データ(対左投手安打)")
+ggplot16p <- 
+  ggplot(pitch_wk16,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() + 
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk16h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+ggplot16p + ggplot15p 
+```
+
 Column {data-width=350}
 -----------------------------------------------------------------------
 
 # 球種内容 {data-navmenu="投手別投球"}
 
 ```{r fig.align = 'center',fig.width=10,fig.height=65}
-pitch_wk15h <- paste("投球データ(球種)")
-ggplot15p <- 
+pitch_wk17h <- paste("投球データ(球種)")
+ggplot17p <- 
   ggplot(pitch_wk01,aes(x = X, y = Y, colour = 球種 )) + 
   geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
   ylim(180,0) + xlim(0,150) + 
   theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
         axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
-  xlab(pitch_wk15h) + ylab("") +
+  xlab(pitch_wk17h) + ylab("") +
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
             fill = "palegreen", colour = "black", alpha = 0.001)
-ggplot15p + facet_wrap(~投手名, ncol=5)
+ggplot17p + facet_wrap(~投手名, ncol=5)
 ```
 
 Column {data-width=350}
@@ -785,19 +831,19 @@ Column {data-width=350}
 # 投球結果 {data-navmenu="投手別投球"}
 
 ```{r fig.align = 'center',fig.width=10,fig.height=65}
-pitch_wk16h <- paste("投球データ(結果球)")
-ggplot16p <- 
+pitch_wk18h <- paste("投球データ(結果球)")
+ggplot18p <- 
   ggplot(pitch_wk01,aes(x = X, y = Y, colour = 結果2 )) + 
   geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
   ylim(180,0) + xlim(0,150) + 
   theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
         axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
-  xlab(pitch_wk16h) + ylab("") +
+  xlab(pitch_wk18h) + ylab("") +
   geom_vline(xintercept = 75) +
   geom_hline(yintercept = 90) +
   geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
             fill = "palegreen", colour = "black", alpha = 0.001)
-ggplot16p + facet_wrap(~投手名, ncol=5)
+ggplot18p + facet_wrap(~投手名, ncol=5)
 ```
 
 Column {data-width=350}
