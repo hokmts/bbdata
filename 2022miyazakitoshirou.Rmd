@@ -714,7 +714,7 @@ ggplot10p + ggplot09p
 pitch_wk11 <- filter(pitch_wk02, 結果7 == "contact" )
 pitch_wk11h <- paste("投球データ(対右投手contact)")
 pitch_wk12 <- filter(pitch_wk03, 結果7 == "contact" )
-pitch_wk12h <- paste("投球データ(対右投手contact)")
+pitch_wk12h <- paste("投球データ(対左投手contact)")
 ggplot11p <- 
   ggplot(pitch_wk11,aes(x = X, y = Y, colour = 球種 )) + 
   geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
@@ -745,7 +745,7 @@ ggplot12p + ggplot11p
 pitch_wk13 <- filter(pitch_wk02, 結果6 == "swstr"  )
 pitch_wk13h <- paste("投球データ(対右投手swstr)")
 pitch_wk14 <- filter(pitch_wk03, 結果6 == "swstr"  )
-pitch_wk14h <- paste("投球データ(対右投手swstr)")
+pitch_wk14h <- paste("投球データ(対左投手swstr)")
 ggplot13p <- 
   ggplot(pitch_wk13,aes(x = X, y = Y, colour = 球種 )) + 
   geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
