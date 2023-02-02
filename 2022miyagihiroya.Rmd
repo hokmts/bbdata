@@ -479,7 +479,7 @@ prslt2 <- table(pitch_wk02$結果2,pitch_wk02$球種) %>%
 prslt3 <- prslt2 / rowSums(prslt2)
 round((prslt3) *100,2) %>% 
   arrange(.,-空振り) %>% 
-  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野飛,外野飛,ファウル,ボール,
+  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野直,内野飛,外野飛,ファウル,ボール,
                 everything()) %>%
   kbl(.,caption = prslt3_tabh ) %>%
   kable_minimal(full_width = F)
@@ -503,7 +503,7 @@ prslt4 <- table(pitch_wk05$球種,pitch_wk05$結果2)
   rename(.data = . ,　"見三振" = "見逃し") %>% 
   rename(.data = . ,　"四球" = "ボール") %>% 
   arrange(.,-空三振) %>% 
-  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野飛,外野飛,四球,
+  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野直,内野飛,外野飛,四球,
                 everything()) %>%
   kbl(.,caption = prslt4_tabh ) %>%
   kable_minimal(full_width = F)

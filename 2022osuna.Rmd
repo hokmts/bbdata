@@ -1,0 +1,855 @@
+---
+title: "2022年 千葉ロッテマリーンズ オスナ (公式戦)"
+author: "hokmts works"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: spacelab
+    orientation: columns
+    vertical_layout: fill
+    navbar:
+      - { title: "Home", href: "https://hokmts23.netlify.app/en/2022players/"}
+    social: [ "twitter","menu"]
+#default”, “bootstrap”, “cerulean”, “cosmo”, “darkly”, “flatly”, “journal”, “lumen”, “paper”, #“readable”, “sandstone”, “simplex”, “spacelab”, “united”, “yeti”
+#投手名 =="山本由伸" | 投手名 =="千賀滉大" | 投手名 =="上沢直之" | 投手名 =="加藤貴之" |
+#投手名 =="髙橋光成" | 投手名 =="伊藤大海" | 投手名 =="小島和哉" | 投手名 =="宮城大弥" |
+#投手名 =="田中将大" | 投手名 =="松井裕樹" | 投手名 =="増田達至" |
+#投手名 =="平野佳寿" | 投手名 =="益田直也" | 投手名 =="モイネロ" | 投手名 =="オスナ" |
+#投手名 =="北山亘基" | 投手名 =="森唯斗" | 投手名 =="石川直也" | 投手名 =="平良海馬" |
+#投手名 =="水上由伸" | 投手名 =="東條大樹" | 投手名 =="西口直人" | 投手名 =="嘉弥真新也" |
+#投手名 =="藤井皓哉" | 投手名 =="ゲレーロ" | 投手名 =="本田圭佑" | 投手名 =="宋家豪" |
+#投手名 =="阿部翔太" 
+---
+
+```{r setup, include=FALSE}
+library("flexdashboard")
+library("rvest")
+library("dplyr")
+library("tidyverse")
+library("openxlsx")
+library("ggplot2")
+library("patchwork")
+library("knitr")
+library("kableExtra")
+library("tidyverse")
+library("cowplot")
+library("gridExtra")
+library("gganimate")
+#library("transformr")
+library("gifski")
+library("gt")
+library("DT")
+library("readxl")
+kable("dfrm")
+# font set
+quartzFonts(Hirakaku=quartzFont(rep("HiraginoSans-W3",4)))
+par(family="Hirakaku")
+theme_set(theme_bw(base_family = "Hirakaku"))
+# plot size set 
+opts_template$set(
+  fig_small = list(out.width = 300, out.height = 300), # 小さいグラフ
+  fig_middle = list(out.width = 400, out.height = 400), # 中間のグラフ
+  fig_large = list(out.width = 500, out.height = 500) , # 大きいグラフ
+  fig_large2 = list(out.width = 700, out.height = 500)  # 大きいグラフ
+  )
+# data load & pacific central data merge
+#pitch_data<-  read_xlsx("~/Public/baseball_2021/r_bb2021/data/2021pitch_data.xlsx",
+#                  sheet = 'pitch_data')
+pitch_data <-  read_xlsx("~/Public/baseball/2022/02data/01game/pitchdata22.xlsx",
+                  sheet = 'Sheet1')
+```
+
+```{r , include=FALSE , cache=TRUE }
+knitr::opts_chunk$set(echo = FALSE)
+# player set 山本由伸
+投手名10s <- c("オスナ")
+投手名10a <- c("2022オスナ")
+# player data selection
+pitch_wk01 <- filter(pitch_data, 投手名 == 投手名10s )
+# data numeric 変換
+pitch_wk01$X <- as.numeric(pitch_wk01$X)
+pitch_wk01$Y <- as.numeric(pitch_wk01$Y)
+pitch_wk01$球速 <- as.numeric(pitch_wk01$球速)
+pitch_wk01$投球数1 <- as.numeric(pitch_wk01$投球数1)
+# 空三振 見三振 replace 空振り 見逃し
+pitch_wk01$結果2 <- ifelse(pitch_wk01$結果2 == "空三振", "空振り", pitch_wk01$結果2 ) 
+pitch_wk01$結果3 <- ifelse(pitch_wk01$結果3 == "空三振", "空振り", pitch_wk01$結果3 ) 
+pitch_wk01$結果4 <- ifelse(pitch_wk01$結果4 == "空三振", "空振り", pitch_wk01$結果4 ) 
+pitch_wk01$結果2 <- ifelse(pitch_wk01$結果2 == "見三振", "見逃し", pitch_wk01$結果2 ) 
+pitch_wk01$結果3 <- ifelse(pitch_wk01$結果3 == "見三振", "見逃し", pitch_wk01$結果3 ) 
+pitch_wk01$結果4 <- ifelse(pitch_wk01$結果4 == "見三振", "見逃し", pitch_wk01$結果4 ) 
+pitch_wk01$結果2 <- ifelse(pitch_wk01$結果2 == "バ三振", "見逃し", pitch_wk01$結果2 ) 
+pitch_wk01$結果3 <- ifelse(pitch_wk01$結果3 == "バ三振", "見逃し", pitch_wk01$結果3 ) 
+pitch_wk01$結果4 <- ifelse(pitch_wk01$結果4 == "バ三振", "見逃し", pitch_wk01$結果4 ) 
+pitch_wk01$結果2 <- ifelse(pitch_wk01$結果2 == "四球", "ボール", pitch_wk01$結果2 ) 
+pitch_wk01$結果3 <- ifelse(pitch_wk01$結果3 == "四球", "ボール", pitch_wk01$結果3 ) 
+pitch_wk01$結果4 <- ifelse(pitch_wk01$結果4 == "四球", "ボール", pitch_wk01$結果4 ) 
+pitch_wk01$結果2 <- ifelse(pitch_wk01$結果2 == "死球", "ボール", pitch_wk01$結果2 ) 
+pitch_wk01$結果3 <- ifelse(pitch_wk01$結果3 == "死球", "ボール", pitch_wk01$結果3 ) 
+pitch_wk01$結果4 <- ifelse(pitch_wk01$結果4 == "死球", "ボール", pitch_wk01$結果4 ) 
+pitch_wk01$結果2 <- ifelse(pitch_wk01$結果2 == "野選出", "失出塁", pitch_wk01$結果2 ) 
+pitch_wk01$結果3 <- ifelse(pitch_wk01$結果3 == "野選出", "失出塁", pitch_wk01$結果3 ) 
+pitch_wk01$結果4 <- ifelse(pitch_wk01$結果4 == "野選出", "失出塁", pitch_wk01$結果4 ) 
+```
+
+
+```{r , message=FALSE,warning=FALSE,fig.align = 'center',fig.width=6,fig.height=6}
+# 投手名10a 全投球内容 散布図
+pitch_wk01h <- paste("投球データ (全打者)")
+ggplot01p <- 
+  ggplot(pitch_wk01,aes(x = X, y = Y, colour = 球速 )) + 
+  geom_point(size = 2, alpha = 1) + 
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk01h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+#
+# 投手名10a 全投球内容 散布図(右打者)
+pitch_wk02h <- paste("投球データ (対右打者)")
+pitch_wk02 <- filter(pitch_wk01, 打者左右 == "右")
+ggplot02p <- 
+  ggplot(pitch_wk02,aes(x = X, y = Y, colour = 球速 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_b() +
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk02h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+#
+# 投手名10a 全投球内容 散布図(左打者)
+pitch_wk03h <- paste("投球データ (対左打者)")
+pitch_wk03 <- filter(pitch_wk01, 打者左右 == "左")
+ggplot03p <- 
+  ggplot(pitch_wk03,aes(x = X, y = Y, colour = 球速 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_b() + 
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk03h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+#
+pitch_wk04 <- filter(pitch_wk01, 結果球 == "*" )
+pitch_wk05 <- filter(pitch_wk02, 結果球 == "*" )
+pitch_wk06 <- filter(pitch_wk03, 結果球 == "*" )
+```
+
+
+```{r }
+pitch_wk04h <- paste("投球データ (対全打者)")
+#pitch_wk07 <- filter(pitch_wk01, 結果球 == "*" )
+ggplot04p <- 
+  ggplot(pitch_wk04,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk04h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001)
+#
+# 投手名10a 全投球内容 散布図(結果球)
+pitch_wk05h <- paste("投球データ (対右打者)")
+#pitch_wk08 <- filter(pitch_wk02, 結果球 == "*" )
+ggplot05p <- 
+  ggplot(pitch_wk05,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk05h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001)
+#
+# 投手名10a 全投球内容 散布図(結果球)
+pitch_wk06h <- paste("投球データ (対左打者)")
+#pitch_wk09 <- filter(pitch_wk03, 結果球 == "*"  )
+ggplot06p <- 
+  ggplot(pitch_wk06,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk06h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001)
+```
+
+
+```{r }
+pitch_wk07h <- paste("投球データ (対右打者結果球)")
+ggplot07w <- table(pitch_wk05$投手名,pitch_wk05$結果) %>% 
+  as.data.frame(.) %>% 
+  ggplot(.,aes(x = reorder(Var2,-Freq)  , y = Freq ,fill= Var2 )) + 
+  geom_col() + scale_fill_viridis_d() + geom_text(aes(label=Freq),vjust=-0.2,size=3) +
+  theme_gray(base_family = "Hiragino Sans W3") +
+  ggtitle(pitch_wk07h) +
+  theme(axis.text.x = element_text( angle = 45, hjust = 1, vjust = 1 ,size=8) ,
+        title = element_text(size = 8),
+        legend.position = "none") +
+  #  scale_y_reverse() +
+  xlab("投球結果") + ylab("結果数")
+#
+pitch_wk08h <- paste("投球データ (対左打者結果球)")
+ggplot08w <- table(pitch_wk06$投手名,pitch_wk06$結果) %>% 
+  as.data.frame(.) %>% 
+  ggplot(.,aes(x = reorder(Var2,-Freq)  , y = Freq ,fill= Var2 )) + 
+  geom_col() + scale_fill_viridis_d() + geom_text(aes(label=Freq),vjust=-0.2,size=3) +
+  theme_gray(base_family = "Hiragino Sans W3") +
+  ggtitle(pitch_wk08h) +
+  theme(axis.text.x = element_text( angle = 45, hjust = 1, vjust = 1 ,size=8 ) ,
+        title = element_text(size = 8),
+        legend.position = "none") +
+  #  scale_y_reverse() +
+  xlab("投球結果") + ylab("結果数")
+```
+
+
+-----------------------------------------------------------------------
+
+# 左右打者別 {data-navmenu="球種構成"}
+```{r}
+球数合計 <- nrow(pitch_wk02)
+p_rh01 <- table(pitch_wk02$球種) 
+p_rh01 <- t(p_rh01) 
+rownames(p_rh01) <- "右打者"
+p_rh01 <- cbind(p_rh01,球数合計)
+#
+球数合計 <- nrow(pitch_wk03)
+p_lh02 <- table(pitch_wk03$球種) 
+p_lh02 <- t(p_lh02) 
+rownames(p_lh02) <- "左打者"
+p_lh02 <- cbind(p_lh02,球数合計)
+#
+row_sum1 <- nrow(pitch_wk02)
+p_rh <- table(pitch_wk02$球種)
+p_rh_per <- p_rh / row_sum1 
+p_rh_per <- round((p_rh_per) *100,2)
+#
+row_sum2 <- nrow(pitch_wk03)
+p_lh <- table(pitch_wk03$球種)
+p_lh_per <- p_lh / row_sum2 
+p_lh_per <- round((p_lh_per) *100,2)
+#
+p_rh_tab <- t(p_rh_per)
+球数合計 <- nrow(pitch_wk02)
+p_rh_tab <- cbind(p_rh_tab,球数合計)
+p_lh_tab <- t(p_lh_per)
+球数合計 <- nrow(pitch_wk03)
+p_lh_tab <- cbind(p_lh_tab,球数合計)
+rownames(p_rh_tab) <- "右打者"
+rownames(p_lh_tab) <- "左打者"
+#p_tab <- rbind(p_rh_tab,p_lh_tab) 
+p_rh_tab1 <- paste("球種構成")
+p_rh_tab2 <- paste("球種構成(%)")
+#
+kbl(p_rh01,caption = p_rh_tab1 ) %>%
+  kable_minimal(full_width = F)
+kbl(p_lh02 ) %>%
+  kable_minimal(full_width = F)
+kbl(p_rh_tab,caption = p_rh_tab2 ) %>%
+  kable_minimal(full_width = F)
+kbl(p_lh_tab ) %>%
+  kable_minimal(full_width = F)
+```
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# 球速帯 {data-navmenu="球種構成"}
+```{r}
+prslt3_tab1 <- paste("球種構成")
+prslt3_tab2 <- paste("球種構成(%)")
+#
+prslt3 <- table(pitch_wk01$球速帯,pitch_wk01$球種)
+rownames(prslt3) <- c("130km台","140km台","150km台","NA")
+kbl(prslt3,caption = prslt3_tab1 ) %>%
+  kable_minimal(full_width = F)
+#
+prslt3 <- (round(prop.table(prslt3,margin=1),4)*100) 
+kbl(prslt3,caption = prslt3_tab2 ) %>%
+  kable_minimal(full_width = F)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# チーム別 {data-navmenu="球種構成"}
+```{r}
+p_type_tabh <- paste("球種構成(%)")
+p_type_tab <- table(pitch_wk01$球種,pitch_wk01$打者チーム) %>%
+  t()　%>% as.data.frame.array()
+球数合計 <- rowSums(p_type_tab)
+p_type_tab1 <- (p_type_tab / 球数合計) 
+round((p_type_tab1) *100,2) %>% 
+  cbind(.,球数合計) %>% 
+  arrange(.,-球数合計) %>% 
+  kbl(.,caption = p_type_tabh ) %>%
+  kable_minimal(full_width = F)
+```
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# 打者別 {data-navmenu="球種構成"}
+```{r }
+p_type_tabh <- paste("球種構成(%)")
+p_type_tab <- table(pitch_wk01$球種,pitch_wk01$打者名) %>%
+  t()　%>% as.data.frame.array()
+球数合計 <- rowSums(p_type_tab)
+p_type_tab1 <- (p_type_tab / 球数合計) 
+round((p_type_tab1) *100,2) %>% 
+  format(., nsmall = 2) %>% 
+  cbind(.,球数合計) %>% 
+  arrange(.,-球数合計) %>% 
+  datatable(.,rownames = TRUE, caption = p_type_tabh )
+            options = list(pageLength = 30, scrollX = TRUE ,
+            class = 'white-space: nowrap' ) 
+```
+
+
+-----------------------------------------------------------------------
+
+# 球種別 {data-navmenu="swing"}
+```{r}
+row_sum <- nrow(pitch_wk02)
+swing <- table(pitch_wk02$結果5,pitch_wk02$球種)
+contact <- table(pitch_wk02$結果7,pitch_wk02$球種)
+swstr <- table(pitch_wk02$結果6,pitch_wk02$球種)
+k_sum <- table(pitch_wk02$球種)
+# per 算出
+swing_per <- swing[1,] / k_sum
+contact_per <- contact[1,] /  swing[1,]
+swstr_per <- swstr[1,] / k_sum
+whiff_per <- swstr[1,] / swing[1,]
+# swing data kable  作成
+sw_datawk <- rbind(swing_per,contact_per,swstr_per,whiff_per)
+sw_data <- round((sw_datawk) *100,2)
+sw_data <- t(sw_data)
+colnames(sw_data) <- c("swing(%)","contact(%)","swstr(%)","whiff(%)") 
+# 球速 data kable　作成
+p_max <- aggregate(x=pitch_wk02[c("球速")], by=list(pitch_wk02$球種), 
+                   FUN=max,na.rm = TRUE)
+p_mean <- aggregate(x=pitch_wk02[c("球速")], by=list(pitch_wk02$球種), 
+                    FUN=mean,1,na.rm = TRUE)
+p_medi <- aggregate(x=pitch_wk02[c("球速")], by=list(pitch_wk02$球種), 
+                    FUN=median,na.rm = TRUE)
+p_min <- aggregate(x=pitch_wk02[c("球速")], by=list(pitch_wk02$球種), 
+                   FUN=min,na.rm = TRUE)
+p_ver <- cbind(p_max[2],p_mean[2],p_min[2])
+p_ver_tabh <- paste("対右打者")
+colnames(p_ver) <- c("球速(max)","球速(ave)","球速(min)") 
+cbind(sw_data,p_ver) %>% 
+  arrange(.,-swstr_per) %>% 
+  kbl(.,caption = p_ver_tabh ) %>%
+  kable_minimal(full_width = F)
+#
+row_sum <- nrow(pitch_wk03)
+swing <- table(pitch_wk03$結果5,pitch_wk03$球種)
+contact <- table(pitch_wk03$結果7,pitch_wk03$球種)
+swstr <- table(pitch_wk03$結果6,pitch_wk03$球種)
+k_sum <- table(pitch_wk03$球種)
+# per 算出
+swing_per <- swing[1,] / k_sum
+contact_per <- contact[1,] /  swing[1,]
+swstr_per <- swstr[1,] / k_sum
+whiff_per <- swstr[1,] / swing[1,]
+# swing data kable  作成
+sw_datawk <- rbind(swing_per,contact_per,swstr_per,whiff_per)
+sw_data <- round((sw_datawk) *100,2)
+sw_data <- t(sw_data)
+colnames(sw_data) <- c("swing(%)","contact(%)","swstr(%)","whiff(%)") 
+# 球速 data kable　作成
+p_max <- aggregate(x=pitch_wk03[c("球速")], by=list(pitch_wk03$球種), FUN=max,na.rm = TRUE)
+p_mean <- aggregate(x=pitch_wk03[c("球速")], by=list(pitch_wk03$球種), FUN=mean,1,na.rm = TRUE)
+p_medi <- aggregate(x=pitch_wk03[c("球速")], by=list(pitch_wk03$球種), FUN=median,na.rm = TRUE)
+p_min <- aggregate(x=pitch_wk03[c("球速")], by=list(pitch_wk03$球種), FUN=min,na.rm = TRUE)
+p_ver <- cbind(p_max[2],p_mean[2],p_min[2])
+p_ver_tabh <- paste("対左打者")
+colnames(p_ver) <- c("球速(max)","球速(ave)","球速(min)") 
+cbind(sw_data,p_ver) %>% 
+  arrange(.,-swstr_per) %>% 
+  kbl(.,caption = p_ver_tabh ) %>%
+  kable_minimal(full_width = F)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# チーム別 {data-navmenu="swing"}
+```{r }
+row_sum <- nrow(pitch_wk01)
+swing <- table(pitch_wk01$結果5,pitch_wk01$打者チーム)
+contact <- table(pitch_wk01$結果7,pitch_wk01$打者チーム)
+swstr <- table(pitch_wk01$結果6,pitch_wk01$打者チーム)
+k_sum <- table(pitch_wk01$打者チーム)
+# per 算出
+swing_per <- swing[1,] / k_sum
+contact_per <- contact[1,] /  swing[1,]
+swstr_per <- swstr[1,] / k_sum
+whiff_per <- swstr[1,] / swing[1,]
+# swing data kable  作成
+sw_datawk <- rbind(swing_per,contact_per,swstr_per,whiff_per)
+sw_data <- round((sw_datawk) *100,2)
+sw_data <- t(sw_data)
+colnames(sw_data) <- c("swing(%)","contact(%)","swstr(%)","whiff(%)") 
+# 球速 data kable　作成
+p_max <- aggregate(x=pitch_wk01[c("球速")], by=list(pitch_wk01$打者チーム), 
+                   FUN=max,na.rm = TRUE)
+p_mean <- aggregate(x=pitch_wk01[c("球速")], by=list(pitch_wk01$打者チーム), 
+                    FUN=mean,1,na.rm = TRUE)
+p_medi <- aggregate(x=pitch_wk01[c("球速")], by=list(pitch_wk01$打者チーム),
+                    FUN=median,na.rm = TRUE)
+p_min <- aggregate(x=pitch_wk01[c("球速")], by=list(pitch_wk01$打者チーム), 
+                   FUN=min,na.rm = TRUE)
+p_ver <- cbind(p_max[2],p_mean[2],p_min[2])
+p_ver_tabh <- paste("対チーム別")
+colnames(p_ver) <- c("球速(max)","球速(ave)","球速(min)") 
+cbind(sw_data,p_ver) %>% 
+  arrange(.,-swstr_per) %>% 
+  kbl(.,caption = p_ver_tabh ) %>%
+  kable_minimal(full_width = F)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# 打者別 {data-navmenu="swing"}
+```{r }
+row_sum <- nrow(pitch_wk01)
+swing <- table(pitch_wk01$結果5,pitch_wk01$打者名)
+contact <- table(pitch_wk01$結果7,pitch_wk01$打者名)
+swstr <- table(pitch_wk01$結果6,pitch_wk01$打者名)
+k_sum <- table(pitch_wk01$打者名)
+# per 算出
+swing_per <- swing[1,] / k_sum
+contact_per <- contact[1,] /  swing[1,]
+swstr_per <- swstr[1,] / k_sum
+whiff_per <- swstr[1,] / swing[1,]
+# swing data kable  作成
+sw_datawk <- rbind(swing_per,contact_per,swstr_per,whiff_per)
+sw_data <- round((sw_datawk) *100,2)
+sw_data <- format(sw_data, nsmall = 2) 
+sw_data <- t(sw_data)
+colnames(sw_data) <- c("swing(%)","contact(%)","swstr(%)","whiff(%)") 
+# 球速 data kable　作成
+p_max <- aggregate(x=pitch_wk01[c("球速")], by=list(pitch_wk01$打者名), 
+                   FUN=max,na.rm = TRUE)
+p_mean <- aggregate(x=pitch_wk01[c("球速")], by=list(pitch_wk01$打者名), 
+                    FUN=mean,1,na.rm = TRUE)
+p_medi <- aggregate(x=pitch_wk01[c("球速")], by=list(pitch_wk01$打者名),
+                    FUN=median,na.rm = TRUE)
+p_min <- aggregate(x=pitch_wk01[c("球速")], by=list(pitch_wk01$打者名), 
+                   FUN=min,na.rm = TRUE)
+p_ver <- cbind(p_max[2],p_mean[2],p_min[2])
+p_ver_tabh <- paste("対打者別")
+colnames(p_ver) <- c("球速(max)","球速(ave)","球速(min)") 
+cbind(sw_data,p_ver,k_sum) %>% 
+  arrange(.,-Freq) %>% 
+  rename(.data = . ,　"球数合計" = "Freq") %>% 
+  .[,-8] %>% 
+    datatable(., 
+              rownames = TRUE, caption = p_ver_tabh ,
+              options = list(pageLength = 30, scrollX = TRUE), 
+              class = 'white-space: nowrap' )
+```
+
+
+-----------------------------------------------------------------------
+
+# 球種別 {data-navmenu="投球結果"}
+```{r }
+prslt3_tabh <- paste("対右打者(%)")
+prslt2 <- table(pitch_wk02$結果2,pitch_wk02$球種) %>% 
+  t() %>% as.data.frame.array()
+prslt3 <- prslt2 / rowSums(prslt2)
+round((prslt3) *100,2) %>% 
+  arrange(.,-空振り) %>% 
+  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野直,内野飛,外野飛,ファウル,ボール,
+                everything()) %>%
+  kbl(.,caption = prslt3_tabh ) %>%
+  kable_minimal(full_width = F)
+#
+prslt3_tabh <- paste("対左打者(%)")
+prslt2 <- table(pitch_wk03$結果2,pitch_wk03$球種) %>% 
+  t() %>% as.data.frame.array()
+prslt3 <- prslt2 / rowSums(prslt2)
+round((prslt3) *100,2) %>% 
+  arrange(.,-空振り) %>% 
+  dplyr::select(.,単打,空振り,見逃し,内野ゴ,内野飛,外野飛,ファウル,ボール,
+                everything()) %>%
+  kbl(.,caption = prslt3_tabh ) %>%
+  kable_minimal(full_width = F)
+#
+prslt4_tabh <- paste("対右打者/結果球(%)")
+prslt4 <- table(pitch_wk05$球種,pitch_wk05$結果2)
+(round(prop.table(prslt4,margin=1),4)*100) %>% 
+  as.data.frame.array() %>% 
+  rename(.data = . ,　"空三振" = "空振り") %>% 
+  rename(.data = . ,　"見三振" = "見逃し") %>% 
+  rename(.data = . ,　"四球" = "ボール") %>% 
+  arrange(.,-空三振) %>% 
+  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野直,内野飛,外野飛,四球,
+                everything()) %>%
+  kbl(.,caption = prslt4_tabh ) %>%
+  kable_minimal(full_width = F)
+#
+prslt5_tabh <- paste("対左打者/結果球(%)")
+prslt5 <- table(pitch_wk06$球種,pitch_wk06$結果2)
+(round(prop.table(prslt5,margin=1),4)*100) %>% 
+  as.data.frame.array() %>% 
+  rename(.data = . ,　"空三振" = "空振り") %>% 
+  rename(.data = . ,　"見三振" = "見逃し") %>% 
+  rename(.data = . ,　"四球" = "ボール") %>% 
+  arrange(.,-空三振) %>% 
+  dplyr::select(.,単打,空三振,見三振,内野ゴ,内野飛,外野飛,四球,
+                everything()) %>%
+  kbl(.,caption = prslt5_tabh ) %>%
+  kable_minimal(full_width = F)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# 球速帯 {data-navmenu="投球結果"}
+```{r }
+prslt6_tab1 <- paste("投球結果/球速")
+prslt6_tab2 <- paste("投球結果/球速(%)")
+prslt6 <- table(pitch_wk01$球速帯,pitch_wk01$結果2) %>% 
+  as.data.frame.array() %>% 
+  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野直,内野飛,外野飛,ファウル,ボール,
+                everything()) 
+rownames(prslt6) <- c("130km台","140km台","150km台","NA")
+kbl(prslt6,caption = prslt6_tab1 ) %>%
+  kable_minimal(full_width = F)
+#
+prslt6 <- prslt6 / rowSums(prslt6)
+round((prslt6) *100,2) %>% 
+kbl(.,caption = prslt6_tab2 ) %>%
+  kable_minimal(full_width = F)
+#
+prslt7_tab1 <- paste("結果球/球速")
+prslt7_tab2 <- paste("結果球/球速(%)")
+prslt7 <- table(pitch_wk04$球速帯,pitch_wk04$結果2) %>% 
+  as.data.frame.array() %>% 
+  rename(.data = . ,　"空三振" = "空振り") %>% 
+  rename(.data = . ,　"見三振" = "見逃し") %>% 
+  rename(.data = . ,　"四球" = "ボール") %>% 
+  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野直,内野飛,外野飛,四球,
+                everything()) 
+rownames(prslt7) <- c("130km台","140km台","150km台","NA")
+kbl(prslt7,caption = prslt7_tab1 ) %>%
+  kable_minimal(full_width = F)
+#
+prslt7 <- prslt7 / rowSums(prslt7)
+round((prslt7) *100,2) %>% 
+  kbl(.,caption = prslt7_tab2 ) %>%
+  kable_minimal(full_width = F)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# チーム別 {data-navmenu="投球結果"}
+```{r }
+prslt8_tabh <- paste("対チーム別(%)")
+prslt8 <- table(pitch_wk01$結果2,pitch_wk01$打者チーム) %>% 
+  t() %>% as.data.frame.array()
+prslt8 <- prslt8 / rowSums(prslt8)
+round((prslt8) *100,2) %>% 
+  arrange(.,-空振り) %>% 
+  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野直,内野飛,外野飛,ファウル,ボール,
+                everything()) %>%
+  kbl(.,caption = prslt8_tabh ) %>%
+  kable_minimal(full_width = F)
+#
+prslt9_tabh <- paste("対チーム別結果球(%)")
+prslt9 <- table(pitch_wk04$結果2,pitch_wk04$打者チーム) %>% 
+  t() %>% as.data.frame.array()
+prslt9 <- prslt9 / rowSums(prslt9)
+round((prslt9) *100,2) %>% 
+  arrange(.,-空振り) %>% 
+  rename(.data = .,　"空三振" = "空振り") %>% 
+  rename(.data = .,　"見三振" = "見逃し") %>% 
+  rename(.data = .,　"四球" = "ボール") %>% 
+  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野直,内野飛,外野飛,四球,
+                everything()) %>% 
+  kbl(.,caption = prslt9_tabh ) %>%
+  kable_minimal(full_width = F)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# 打者別 {data-navmenu="投球結果"}
+```{r }
+prslt10_tabh <- paste("対打者別(%)")
+prslt10 <- table(pitch_wk01$結果2,pitch_wk01$打者名) %>% 
+  t() %>% as.data.frame.array()
+球数合計 <- rowSums(prslt10)
+prslt10 <- prslt10 / rowSums(prslt10)
+round((prslt10) *100,2) %>% 
+  format(., nsmall = 2) %>% 
+  cbind(.,球数合計) %>% 
+  dplyr::select(.,単打,長打,本塁打,空振り,見逃し,内野ゴ,内野直,内野飛,外野飛,ファウル,ボール,
+                everything()) %>%
+  arrange(.,-球数合計) %>% 
+  datatable(., 
+            rownames = TRUE, caption = prslt10_tabh ,
+            options = list(pageLength = 30, scrollX = TRUE), 
+            class = 'white-space: nowrap' )
+#
+```
+
+
+# 打者別結果球 {data-navmenu="投球結果"}
+```{r }
+prslt11_tabh <- paste("対打者別結果球(%)")
+prslt11 <- table(pitch_wk04$結果2,pitch_wk04$打者名) %>% 
+  t() %>% as.data.frame.array()
+球数合計 <- rowSums(prslt11)
+prslt11 <- prslt11 / rowSums(prslt11)
+round((prslt11) *100,2) %>% 
+  format(., nsmall = 2) %>% 
+  cbind(.,球数合計) %>% 
+  rename(.data = .,　"空三振" = "空振り") %>% 
+  rename(.data = .,　"見三振" = "見逃し") %>% 
+  rename(.data = .,　"四球" = "ボール") %>% 
+  dplyr::select(.,単打,長打,本塁打,空三振,見三振,内野ゴ,内野直,内野飛,外野飛,四球,
+                everything()) %>% 
+  arrange(.,-球数合計) %>% 
+  datatable(., 
+            rownames = TRUE, caption = prslt11_tabh ,
+            options = list(pageLength = 30, scrollX = TRUE), 
+            class = 'white-space: nowrap' )
+```
+
+
+-----------------------------------------------------------------------
+
+# 結果球構成 {data-navmenu="投球結果"}
+```{r fig.width=10,fig.height=5,fig.align = 'center'}
+ggplot07w 
+```
+
+
+```{r fig.width=10,fig.height=5,fig.align = 'center'}
+ggplot08w
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# 球速 {data-navmenu="投球コース"}
+
+```{r fig.width=7,fig.height=6,fig.align = 'center'}
+ggplot02p + facet_wrap(~球種,ncol=3) + labs(colour = "km/h")
+```
+
+
+```{r fig.width=7,fig.height=6,fig.align = 'center'}
+ggplot03p + facet_wrap(~球種,ncol=3) + labs(colour = "km/h")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# 結果球 {data-navmenu="投球コース"}
+
+```{r fig.width=7,fig.height=11,fig.align = 'center'}
+ggplot05p + facet_wrap(~結果2,ncol=3) 
+```
+
+
+```{r fig.width=7,fig.height=8,fig.align = 'center'}
+ggplot06p + facet_wrap(~結果2,ncol=3) 
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# 球種swing {data-navmenu="投球コース"}
+```{r fig.width=7,fig.height=3,fig.align = 'center'}
+ggplot09p <- 
+  ggplot(pitch_wk02,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk02h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+#
+ggplot10p <- 
+  ggplot(pitch_wk03,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() + 
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk03h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+ggplot10p + ggplot09p 
+```
+
+```{r fig.width=7,fig.height=3,fig.align = 'center'}
+pitch_wk11 <- filter(pitch_wk02, 結果7 == "contact" )
+pitch_wk11h <- paste("投球データ(対右打者contact)")
+pitch_wk12 <- filter(pitch_wk03, 結果7 == "contact" )
+pitch_wk12h <- paste("投球データ(対左打者contact)")
+ggplot11p <- 
+  ggplot(pitch_wk11,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk11h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+#
+ggplot12p <- 
+  ggplot(pitch_wk12,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() + 
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk12h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+ggplot12p + ggplot11p 
+```
+
+```{r fig.width=7,fig.height=3,fig.align = 'center'}
+pitch_wk13 <- filter(pitch_wk02, 結果6 == "swstr"  )
+pitch_wk13h <- paste("投球データ(対右打者swstr)")
+pitch_wk14 <- filter(pitch_wk03, 結果6 == "swstr"  )
+pitch_wk14h <- paste("投球データ(対左打者swstr)")
+ggplot13p <- 
+  ggplot(pitch_wk13,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk13h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+#
+ggplot14p <- 
+  ggplot(pitch_wk14,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() + 
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk14h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+ggplot14p + ggplot13p 
+```
+
+
+```{r fig.width=7,fig.height=3,fig.align = 'center'}
+pitch_wk15 <- filter(pitch_wk02, 結果2 == "単打" | 結果2 == "長打"| 結果2 == "本塁打"　)
+pitch_wk15h <- paste("投球データ(対右打者被安打)")
+ggplot15p <- 
+  ggplot(pitch_wk15,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() + 
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk15h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+#
+pitch_wk16 <- filter(pitch_wk03, 結果2 == "単打" | 結果2 == "長打"| 結果2 == "本塁打"　)
+pitch_wk16h <- paste("投球データ(対左打者被安打)")
+ggplot16p <- 
+  ggplot(pitch_wk16,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() + 
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk16h) + ylab(NULL) +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001) 
+ggplot16p + ggplot15p 
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# 球種内容 {data-navmenu="打者別投球"}
+
+```{r fig.align = 'center',fig.width=10,fig.height=35}
+pitch_wk17h <- paste("投球データ(球種)")
+ggplot17p <- 
+  ggplot(pitch_wk01,aes(x = X, y = Y, colour = 球種 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk17h) + ylab("") +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001)
+ggplot17p + facet_wrap(~打者名, ncol=5)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+# 投球結果 {data-navmenu="打者別投球"}
+
+```{r fig.align = 'center',fig.width=10,fig.height=35}
+pitch_wk18h <- paste("投球データ(結果球)")
+ggplot18p <- 
+  ggplot(pitch_wk01,aes(x = X, y = Y, colour = 結果2 )) + 
+  geom_point(size = 2, alpha = 1) + scale_colour_viridis_d() +
+  ylim(180,0) + xlim(0,150) + 
+  theme(axis.ticks = element_blank(),axis.text.y = element_blank(),
+        axis.text.x = element_blank(),axis.title.x = element_text(size = 10)) +
+  xlab(pitch_wk18h) + ylab("") +
+  geom_vline(xintercept = 75) +
+  geom_hline(yintercept = 90) +
+  geom_rect(aes(xmin = 30, xmax = 120, ymin = 25, ymax = 150),
+            fill = "palegreen", colour = "black", alpha = 0.001)
+ggplot18p + facet_wrap(~打者名, ncol=5)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+
+```{r }
+
+```
