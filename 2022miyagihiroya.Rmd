@@ -7,7 +7,7 @@ output:
     orientation: columns
     vertical_layout: fill
     navbar:
-      - { title: "Home", href: "https://hokmts23.netlify.app/en/2022npb/"}
+      - { title: "Home", href: "https://hokmts23.netlify.app/en/2022players/"}
     social: [ "twitter","menu"]
 #default”, “bootstrap”, “cerulean”, “cosmo”, “darkly”, “flatly”, “journal”, “lumen”, “paper”, #“readable”, “sandstone”, “simplex”, “spacelab”, “united”, “yeti”
 #投手名 =="山本由伸" | 投手名 =="千賀滉大" | 投手名 =="上沢直之" | 投手名 =="加藤貴之" |

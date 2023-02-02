@@ -7,7 +7,7 @@ output:
 #    vertical_layout: fill
     vertical_layout: scroll
     navbar:
-      - { title: "Home", href: "https://hokmts23.netlify.app/en/2022npb/"}
+      - { title: "Home", href: "https://hokmts23.netlify.app/en/2022leaders/"}
     social: [ "twitter","menu"]
 #default”, “bootstrap”, “cerulean”, “cosmo”, “darkly”, “flatly”, “journal”, “lumen”, “paper”, #“readable”, “sandstone”, “simplex”, “spacelab”, “united”, “yeti”
 ---
