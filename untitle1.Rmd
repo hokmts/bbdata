@@ -3,7 +3,7 @@ title: "Untitled"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
-    vertical_layout: fill
+#    vertical_layout: fill
     navbar:
       - { title: "Home", href: "https://hokmts23.netlify.app/"}
     social: [ "twitter","menu"]
