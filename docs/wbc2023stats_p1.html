@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="hokmts works" />
+
+<meta name="date" content="2023-03-28" />
+
+<title>World Baseball Classic 2023 #1</title>
+
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.6.0/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.26/datatables.js"></script>
+<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">World Baseball Classic 2023 #1</h1>
+<h4 class="author">hokmts works</h4>
+<h4 class="date">2023-03-28</h4>
+
+</div>
+
+
+<div id="top-of-page" class="section level2">
+<h2>Top of page</h2>
+<p>World Baseball Classic 2023 Pitching summary #1　　</p>
+<p>WBC2023の各国投手の投球内容のデータをサマリしました。🇯🇵日本の投手陣は頭ひとつ抜けてます。球速と空振り率、球種はスプリットとスイーパーが効いています。
+#2ができれば、個々の指標で投手を見れていければと思います。<br />
+データは <a href="https://baseballsavant.mlb.com"
+class="uri">https://baseballsavant.mlb.com</a> からです。Thanks!</p>
+<p><a href="https://hokmts23.netlify.app/en/2023wbc02/">## Back to home
+##</a></p>
+<div id="pitch-type---teams" class="section level3">
+<h3>Pitch type (%) - teams</h3>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-06256dbcb1efec5ae8e6" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-06256dbcb1efec5ae8e6">{"x":{"filter":"none","vertical":false,"caption":"<caption><\/caption>","data":[["United States","Japan","Cuba","Venezuela","Australia","Mexico","China","Italy","Puerto Rico","Great Britain","Czech Republic","Panama","Chinese Taipei","Colombia","Netherlands","Nicaragua","Israel","Korea","Dominican Rep.","Canada"],["0.00","0.00","0.00","0.00","0.00","0.14","0.00","0.00","0.00","0.00","0.00","2.27","0.00","2.23","0.00","0.00","0.00","0.00","0.00","0.75"],["24.90","39.79","34.86","36.70","33.87","37.77","44.70","26.49","21.57","26.78","40.41","27.18","25.70","33.62","43.23","20.15","23.93","30.04","34.25","32.50"],["11.01"," 6.60","21.89","15.60","21.60","13.19","18.25"," 7.93"," 7.09","10.44","20.92","15.37","18.78","15.95","11.28","21.96","12.24","22.01","15.01"," 8.75"],["14.40"," 4.19"," 4.36"," 7.47","12.27"," 3.30"," 9.62"," 7.08"," 1.81"," 3.93","22.66","10.52"," 3.29","14.41"," 6.60"," 8.17"," 7.98"," 9.70"," 1.48","17.25"],[" 8.64"," 5.24"," 7.97","13.11"," 5.07"," 4.95"," 8.63"," 8.22"," 8.14","13.31"," 3.17"," 5.18"," 4.61"," 4.12"," 3.12"," 8.71","15.21","10.26"," 3.17"," 9.75"],["1.85","0.00","0.00","0.26","0.00","0.00","0.00","0.00","0.60","4.24","0.00","0.00","0.00","0.00","0.00","0.00","0.93","0.00","0.42","0.25"],["20.58","12.36","11.37","14.42","18.40","15.11"," 7.21","20.68","27.15","21.79","10.62","20.39","25.37","10.63","11.98","27.59","18.37","15.11","19.66","13.50"],["16.56"," 8.27","18.49","11.14"," 8.53","16.21","11.60","29.60","23.68","17.55"," 2.22","19.09","22.24","19.04","23.78","13.43","18.55","12.31","21.56","16.75"],["0.10","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00"],["1.13","0.00","0.00","0.00","0.00","5.22","0.00","0.00","1.66","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00"],[" 0.82","14.87"," 0.00"," 0.52"," 0.00"," 2.88"," 0.00"," 0.00"," 8.30"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.56"," 4.44"," 0.50"],["0.00","8.69","1.06","0.79","0.27","1.24","0.00","0.00","0.00","1.97","0.00","0.00","0.00","0.00","0.00","0.00","2.78","0.00","0.00","0.00"],[972,955,941,763,750,728,707,706,663,661,631,618,607,583,576,551,539,536,473,400]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>2-Seam Fastball<\/th>\n      <th>4-Seam Fastball<\/th>\n      <th>Changeup<\/th>\n      <th>Curveball<\/th>\n      <th>Cutter<\/th>\n      <th>Knuckle Curve<\/th>\n      <th>Sinker<\/th>\n      <th>Slider<\/th>\n      <th>Slow Curve<\/th>\n      <th>Slurve<\/th>\n      <th>Splitter<\/th>\n      <th>Sweeper<\/th>\n      <th>pitchtype.count<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"scrollX":false,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5,6,7,8,9,10,11,12,13]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="pitch-type-plot---teams" class="section level3">
+<h3>Pitch Type (plot) - teams</h3>
+<p><img src="wbc2023stats_p1_files/figure-html/unnamed-chunk-2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pitch-velocity-plot---teams" class="section level3">
+<h3>Pitch Velocity (plot) - teams</h3>
+<p><img src="wbc2023stats_p1_files/figure-html/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pitch-swing-mph---teams" class="section level3">
+<h3>Pitch swing &amp; MPH - teams</h3>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8d0a494016309a36aec9" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8d0a494016309a36aec9">{"x":{"filter":"none","vertical":false,"caption":"<caption><\/caption>","data":[["Japan","Dominican Rep.","Korea","Venezuela","Puerto Rico","Mexico","Colombia","Cuba","Canada","United States","Israel","Australia","Italy","Czech Republic","Chinese Taipei","Panama","Great Britain","Nicaragua","Netherlands","China"],["51.41","53.49","45.34","50.20","46.91","47.66","45.28","48.35","45.50","46.81","48.05","39.20","48.31","41.68","46.09","47.90","42.66","47.19","42.53","37.77"],["63.54","72.73","68.31","71.54","71.38","72.05","71.97","74.73","74.18","75.82","76.83","74.15","79.30","76.05","79.86","80.74","79.08","81.54","79.59","83.52"],["18.74","14.59","14.37","14.29","13.42","13.32","12.69","12.22","11.75","11.32","11.13","10.13","10.00"," 9.98"," 9.28"," 9.22"," 8.93"," 8.71"," 8.68"," 6.22"],["36.46","27.27","31.69","28.46","28.62","27.95","28.03","25.27","25.82","24.18","23.17","25.85","20.70","23.95","20.14","19.26","20.92","18.46","20.41","16.48"],["102.00","101.90"," 96.40","101.50","100.00"," 97.30","102.00"," 98.40"," 98.80"," 97.40"," 98.60"," 95.40"," 98.80"," 93.70"," 95.90"," 99.50","101.30"," 98.50"," 97.30"," 96.20"],["91.80","92.80","85.70","92.00","90.70","91.80","88.60","88.20","89.05","88.85","88.40","86.30","88.80","82.20","86.50","87.95","87.80","87.60","87.70","83.80"],["55.90","74.30","69.00","69.00","71.40","71.50","72.30","44.70","75.50","69.00","73.00","68.10","72.60","67.20","68.50","70.60","71.10","68.20","74.10","61.90"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>swing(%)<\/th>\n      <th>contact(%)<\/th>\n      <th>swstr(%)<\/th>\n      <th>whiff(%)<\/th>\n      <th>MPH(max)<\/th>\n      <th>MPH(ave)<\/th>\n      <th>MPH(min)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"scrollX":false,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="pitch-result---teams" class="section level3">
+<h3>Pitch Result (%) - teams</h3>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8bf97d50fd43e5ef5f82" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8bf97d50fd43e5ef5f82">{"x":{"filter":"none","vertical":false,"caption":"<caption><\/caption>","data":[["United States","Japan","Cuba","Venezuela","Australia","Mexico","Italy","China","Puerto Rico","Great Britain","Czech Republic","Panama","Chinese Taipei","Colombia","Netherlands","Nicaragua","Israel","Korea","Dominican Rep.","Canada"],["33.85","30.99","33.79","32.24","38.53","32.69","34.65","43.14","34.84","40.70","38.83","34.63","35.50","36.19","36.98","35.03","32.28","35.26","29.39","37.25"],["2.06","1.57","2.55","1.44","3.47","2.88","1.41","3.96","2.71","2.72","1.58","1.13","3.42","3.09","2.08","1.27","2.60","1.68","1.06","1.00"],["17.08","15.29","14.56","15.86","17.60","16.35","13.80","14.43","15.38","13.62","17.43","15.86","14.01","14.58","17.36","15.25","16.51","16.42","15.86","15.75"],["16.26","16.86","18.92","19.27","12.93","17.45","18.87","15.70","15.54","16.19","14.10","18.61","18.57","15.27","14.41","18.33","18.00","14.93","19.87","19.00"],["0.00","0.21","0.00","0.00","0.40","0.27","0.70","0.14","0.00","0.15","0.32","0.16","0.49","0.17","0.17","0.36","0.19","0.37","0.00","0.25"],["0.93","0.42","0.96","0.66","0.40","0.41","0.85","0.14","1.21","0.45","0.00","0.97","0.16","0.34","0.69","0.91","1.48","0.75","1.90","0.25"],["0.21","0.52","0.74","0.13","0.67","0.14","0.85","0.57","0.15","0.15","0.16","0.16","0.49","0.69","0.52","0.91","0.37","0.93","0.21","0.25"],["4.42","3.46","3.29","5.11","3.60","3.57","3.94","3.82","3.17","3.93","2.69","5.18","3.91","3.95","3.47","4.17","4.45","3.92","2.96","3.00"],["11.73","10.47","10.63"," 8.91","10.27","10.85","11.83"," 7.64","11.76"," 9.68","10.94","11.33","10.42","10.98","12.85","11.80"," 9.65"," 8.58","12.05"," 8.00"],["2.16","1.47","2.34","1.97","1.87","2.06","2.82","4.24","1.81","3.48","3.96","2.59","3.75","2.06","2.43","3.27","3.34","2.80","2.11","3.50"],["0.00","0.00","0.00","0.13","0.13","0.00","0.28","0.00","0.00","0.00","0.00","0.16","0.00","0.00","0.35","0.00","0.00","0.00","0.00","0.00"],["11.32","18.74","12.22","14.29","10.13","13.32","10.00"," 6.22","13.42"," 8.93"," 9.98"," 9.22"," 9.28","12.69"," 8.68"," 8.71","11.13","14.37","14.59","11.75"],[972,955,941,763,750,728,710,707,663,661,631,618,614,583,576,551,539,536,473,400]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Ball<\/th>\n      <th>Ball In Dirt<\/th>\n      <th>Called Strike<\/th>\n      <th>Foul<\/th>\n      <th>Foul Bunt<\/th>\n      <th>Foul Tip<\/th>\n      <th>Hit By Pitch<\/th>\n      <th>In play, no out<\/th>\n      <th>In play, out(s)<\/th>\n      <th>In play, run(s)<\/th>\n      <th>Missed Bunt<\/th>\n      <th>Swinging Strike<\/th>\n      <th>result.count<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"scrollX":false,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5,6,7,8,9,10,11,12,13]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="pitch-type---pitchers" class="section level3">
+<h3>Pitch type (%) - Pitchers</h3>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d7b3a075c9d763bed2a3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d7b3a075c9d763bed2a3">{"x":{"filter":"none","vertical":false,"caption":"<caption><\/caption>","data":[["Miguel Romero : Cuba","Roenis Elias : Cuba","Shohei Ohtani : Japan","Marcus Stroman : Puerto Rico","Yariel Rodriguez : Cuba","Roki Sasaki : Japan","Lance Lynn : United States","Julio Urias : Mexico","Luis Garcia : Venezuela","Patrick Sandoval : Mexico","Martin Schneider : Czech Republic","Adam Wainwright : United States","Yoshinobu Yamamoto : Japan","Miles Mikolas : United States","Mitch Neunborn : Australia","Matt Harvey : Italy","Alan Carter : China","Merrill Kelly : United States","Yu Darvish : Japan","Shota Imanaga : Japan","Carlos Viera : Cuba","Shosei Togo : Japan","Daniel McGrath : Australia","Hailong Sun : China","Marek Minarik : Czech Republic","Tae-in Won : Korea","JC Ramirez : Nicaragua","Javier Assad : Mexico","Andre Pallante : Italy","Che-Yuan Wu : Chinese Taipei","Livan Moinelo : Cuba","Randall Delgado : Panama","Martin Perez : Venezuela","Daniel Padysak : Czech Republic","Kyle Freeland : United States","Se Woong Park : Korea","Elian Leyva : Cuba","Kevin Kelly : Netherlands","Matt Festa : Italy","Mike Bolsenbroek : Netherlands","Ondrej Satoria : Czech Republic","Xiang Wang : China","Derek West : Netherlands","Hiroya Miyagi : Japan","Brandon Gold : Israel","Changlong Su : China","Chaoqun Zheng : China","Jason Adam : United States","Adrian Almeida : Colombia","Robert Stock : Israel","Humberto Mejia : Panama","Luke Wilkins : Australia","Tyler Viza : Great Britain","Harold Arauz : Panama","Jose De Leon : Puerto Rico","Onelki Garcia : Cuba","Sandy Alcantara : Dominican Rep.","Shairon Martis : Netherlands","Weiyi Wang : China","Daniel Bard : United States","Enmanuel De Jesus : Venezuela","Taijuan Walker : Mexico","Wei-Chung Wang : Chinese Taipei","Young Pyo Ko : Korea","Chih-Wei Hu : Chinese Taipei","Ryan Castellani : Italy","Stephen Woods Jr. : Italy","Josh Guyer : Australia","Raidel Martinez : Cuba","Ryan Long : Great Britain","Xin Qi : China","Fernando Cruz : Puerto Rico","JoJo Romero : Mexico","Kuan-Yu Chen : Chinese Taipei","Vance Worley : Great Britain","Wilfredo Pereira : Panama","Jack O'Loughlin : Australia","Jeff Barto : Czech Republic","Jose Quijada : Venezuela","Kwang Hyun Kim : Korea","Taisei Ota : Japan","Junior Tellez : Nicaragua","Noah Skirrow : Canada","Pablo Lopez : Venezuela","R.J. Freure : Canada","Tom de Blok : Netherlands","Andre Scrubb : Great Britain","David Bednar : United States","Jose Ruiz : Venezuela","Michele Vassalotti : Italy","Nabil Crismatt : Colombia","Nick Martinez : United States","Andy Otero : Panama","Lukas Ercoli : Czech Republic","Tzu-Peng Huang : Chinese Taipei","Alberto Guerrero : Panama","Vinny Nittoli : Italy","William Cuevas : Colombia","Donovan Benoit : Great Britain","Kyle Glogoski : Australia","Alex Webb : Great Britain","Brady Singer : United States","Leo Crawford : Nicaragua","Ronald Medrano : Nicaragua","Cristian Javier : Dominican Rep.","Eduardo Rodriguez : Venezuela","Alexis Diaz : Puerto Rico","Devin Williams : United States","Jaime Barria : Panama","Ronald Bolanos : Cuba","Erasmo Ramirez : Nicaragua","Jesus Luzardo : Venezuela","Joey Marciano : Italy","Kuan-Wei Chen : Chinese Taipei","Dean Kremer : Israel","Hector Santiago : Puerto Rico","Jose Alvarado : Venezuela","Curtis Taylor : Canada","Eric Mendez : Netherlands","Hiroto Takahashi : Japan","Jorge Lopez : Puerto Rico","Michal Kovala : Czech Republic","Pedro Garcia : Colombia","Steven Kent : Australia","Joe LaSorsa : Italy","Jose Urquidy : Mexico","Jovani Moran : Puerto Rico","Will Sherriff : Australia","Yacksel Rios : Puerto Rico","Yapson Gomez : Colombia","Alberto Baldonado : Panama","Carlos Rodriguez : Nicaragua","Joseph King : Great Britain","Carlos Hernandez : Venezuela","Giovanny Gallegos : Mexico","Silvino Bracho : Venezuela","Todd Van Steensel : Australia","Zack Weiss : Israel","Frank Alvarez : Cuba","Jesus Cruz : Mexico","Mitchell Stumpo : Italy","Been Gwak : Korea","Daniel Cooper : Great Britain","Sam Holland : Australia","Yongchan Lee : Korea","Graham Spraker : Great Britain","Jan Tomek : Czech Republic","Jhoulys Chacin : Venezuela","Roansy Contreras : Dominican Rep.","Atsuki Yuasa : Japan","Chia-Hao Sung : Chinese Taipei","Evan Rutckyj : Canada","Hector Neris : Dominican Rep.","Jyun-Yue Tseng : Chinese Taipei","Hao Zhang : China","Jian Yi : China","Shih-Peng Chen : Chinese Taipei","Guillermo Zuniga : Colombia","Jacob Steinmetz : Israel","Jose Berrios : Puerto Rico","Ruben Galindo : Colombia","Bryan Abreu : Dominican Rep.","Cal Quantrill : Canada","Colton Gordon : Israel","Aaron Loup : United States","Diego Castillo : Dominican Rep.","Hai-Cheng Gong : China","Hyeong Jun So : Korea","Jhon Romero : Colombia","Lars Huijer : Netherlands","Tomas Duffek : Czech Republic","Yen-Ching Lu : Chinese Taipei","Yuchen Wang : China","Chavez Fernander : Great Britain","Julio Vivas : Colombia","Severino Gonzalez : Panama","C.C. Lee : Chinese Taipei","Cesar Valdez : Dominican Rep.","Coen Wynne : Australia","Franklin Van Gurp : Netherlands","Jake Sanchez : Mexico","Jaydenn Estanista : Netherlands","Jon Kennedy : Australia","Reiver Sanmartin : Colombia","Adam Ottavino : United States","Duane Underwood Jr. : Puerto Rico","Jasier Herrera : Colombia","Jonathan Loaisiga : Nicaragua","Matt Hardy : Panama","Osman Gutierrez : Nicaragua","Akeel Morris : Great Britain","Cheol Wong Jeong : Korea","Jose Rodriguez : Cuba","Josh Wolf : Israel","Luis Garcia : Dominican Rep.","Edwin Diaz : Puerto Rico","Ryan Pressly : United States","Sam Gaviglio : Italy","Santiago Florez : Colombia","Won Jung Kim : Korea","Bubby Rossman : Israel","Chang Mo Koo : Korea","Fidencio Flores : Nicaragua","Hiromi Itoh : Japan","Javy Guerra : Panama","Joey Wagman : Israel","Phillippe Aumont : Canada","Yu-Hsun Chen : Chinese Taipei","Keiji Takahashi : Japan","Liam Doolan : Australia","Ryan Huntington : Netherlands","Indigo Diaz : Canada","Richard Bleier : Israel","Wendell Floranus : Netherlands","Camilo Doval : Dominican Rep.","Carlos Ocampo : Colombia","Ian Gibaut : Great Britain","Johnny Cueto : Dominican Rep.","Kevin Gadea : Nicaragua","Lukas Hlouch : Czech Republic","Cam Opp : Great Britain","Luis Cessa : Mexico","Mitch Bratt : Canada","Yimi Garcia : Dominican Rep.","Adam Loewen : Canada","Andres Machado : Venezuela","Joaquin Acuna : Nicaragua","Luis Ortiz : Dominican Rep.","Nicholas Padilla : Puerto Rico","Yuki Matsui : Japan","Eui Lee Lee : Korea","Jake Esch : Great Britain","Blake Townsend : Australia","Rafael Montero : Dominican Rep.","Cesar Vargas : Mexico","Evan Kravetz : Israel","Juan Carlos Sulbaran : Netherlands","Justin Lawrence : Panama","Luis De Avila : Colombia","Rio Gomez : Colombia","Andrew Gross : Israel","Carlos Teller : Nicaragua","Duque Hebbert : Nicaragua","Erubiel Armenta : Mexico","Qiang Lin : China","Rodney Theophile : Nicaragua","Alex Katz : Israel","Emilio Pagan : Puerto Rico","Gerardo Reyes : Mexico","Kyle Molnar : Israel","Manny Barreda : Mexico","Matteo Bocchi : Italy","Warwick Saupold : Australia","Davis Romero : Panama","Filip Capka : Czech Republic","Fuyang Zhao : China","Genesis Cabrera : Dominican Rep.","Jake Fishman : Israel","Michael Petersen : Great Britain","Darwinzon Hernandez : Venezuela","McKenzie Mills : Great Britain","Yun Sik Kim : Korea","Samuel Zazueta : Mexico","Shao-Ching Chiang : Chinese Taipei","Yuki Udagawa : Japan","Glenn Albanese Jr. : Italy","James Gonzalez : Panama","Claudio Scotti : Italy","John Axford : Canada","Matt Brash : Canada","Yeudis Reyes : Cuba","Anthony Maldonado : Puerto Rico","Arij Fransen : Netherlands","Cade Smith : Canada","Dilmer Mejia : Nicaragua","Endrys Briceno : Venezuela","Kendall Graveman : United States","Kwon Ju : China","Trevor Brigden : Canada","Antwone Kelly : Netherlands","Dereck Rodriguez : Puerto Rico","Jack Weinberger : Israel","Joe Biagini : Italy","Tahnaj Thomas : Great Britain","Daniel Federman : Israel","Rob Kaminsky : Israel","Scott Mathieson : Canada","Naykel Cruz : Cuba","Hyeon-Jong Yang : Korea","Jake Rabinowitz : Czech Republic","Kai-Wei Teng : Chinese Taipei","Wooyoung Jung : Korea","Jan Novak : Czech Republic"],[" 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","23.64"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","48.28"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 5.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","25.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"],["16.56","40.00","42.22"," 0.00","48.87","50.00","42.28","48.36","37.70","14.88","28.95"," 8.85","44.64","30.91","42.59","11.00","58.76","36.08","27.96","51.69","10.23","43.68","40.70","48.24"," 0.00","39.51","29.11"," 6.41","76.62","51.95","44.16","28.38"," 8.22","71.43","18.57","32.86","37.68","66.67","27.54","31.88","37.68","69.57","67.65"," 0.00","22.39","68.66","49.25","28.36","25.76","42.42","61.54"," 6.15","36.92"," 0.00"," 0.00","20.31","15.62","50.00","32.81"," 3.17","39.68","49.21"," 4.76"," 4.76","19.35"," 1.61","35.48","49.18","62.30","59.02","60.66","38.33","35.00","28.33","10.00","55.00","30.51","44.07","86.44","28.81"," 0.00"," 0.00","44.83","39.66","43.10","39.66"," 0.00","68.42","42.11","64.91","14.04","19.30"," 0.00","51.79"," 1.79","60.00","23.64","34.55"," 5.56"," 9.26"," 7.55"," 0.00","11.32","20.75","57.69","30.77","62.75","39.22"," 7.84","35.29"," 8.00","30.00"," 4.00","56.00","22.45","14.29"," 0.00","27.08","16.67","39.58"," 4.17","58.33","62.50","62.50"," 0.00","42.55","51.06","27.66","17.02","23.40","10.87","21.74","39.13","73.33","71.11","51.11","51.11","42.22","59.09","65.91","18.18","44.19"," 0.00"," 0.00"," 0.00","48.78","31.71"," 0.00","58.54","62.50","12.50","45.00","57.50","57.50"," 0.00","48.72","25.64","71.05","52.63","31.58","89.47","40.54"," 2.70"," 8.11"," 0.00"," 5.56"," 0.00"," 0.00","61.11"," 2.78","47.22","13.89","33.33"," 5.71"," 0.00"," 2.86"," 0.00","14.71","61.76"," 0.00","23.53","70.59"," 0.00"," 8.82"," 0.00"," 3.03","12.12"," 3.03"," 3.03","24.24","43.75","50.00","28.12","21.88"," 6.25","48.39","22.58"," 0.00","40.00","16.67","41.38","58.62","27.59","62.07","51.72"," 0.00"," 0.00","41.38","50.00","64.29","53.57","66.67"," 3.70","44.44"," 0.00","11.54","50.00","30.77","53.85","88.46","48.00","16.00","20.00","37.50"," 0.00","39.13"," 8.70","60.87"," 0.00","65.22","86.36","45.45","28.57","42.86","70.00","25.00","60.00"," 0.00","30.00"," 0.00"," 0.00"," 0.00","10.53","73.68"," 0.00","84.21"," 0.00","72.22","55.56"," 0.00","44.44"," 0.00","27.78","70.59","41.18"," 5.88","64.71"," 0.00","52.94","60.00"," 0.00","33.33","14.29"," 0.00","50.00"," 7.69","23.08","75.00","50.00","33.33","16.67"," 0.00"," 0.00","54.55","54.55"," 0.00"," 0.00"," 9.09","45.45","80.00","60.00"," 0.00","50.00","60.00","44.44","44.44","33.33","50.00","71.43","28.57"," 0.00"," 0.00","20.00"],["29.94","35.86"," 0.00"," 0.00"," 4.51"," 0.00"," 4.88","20.49"," 3.28","17.36"," 8.77"," 4.42"," 0.00"," 4.55","33.33"," 9.00","11.34","13.40"," 0.00"," 0.00","25.00","31.03","58.14","34.12","36.14","40.74"," 8.86"," 1.28"," 0.00","22.08"," 7.79","40.54","34.25"," 2.86"," 5.71"," 5.71","33.33"," 2.90"," 0.00","21.74","56.52"," 1.45"," 0.00","10.29","25.37","22.39"," 4.48","25.37","18.18"," 0.00","18.46","30.77","20.00"," 1.56","17.19","31.25","21.88","15.62"," 0.00"," 0.00","12.70"," 0.00","26.98","42.86","12.90","11.29"," 6.45","18.03","26.23"," 3.28","29.51"," 0.00","18.33","36.67"," 0.00"," 6.67"," 5.08","33.90","10.17"," 6.78","10.17","17.24"," 3.45","25.86"," 0.00","15.52"," 0.00"," 0.00","24.56"," 5.26","45.61","28.07","19.64"," 5.36","16.07","12.73"," 0.00","16.36"," 0.00","14.81"," 1.89"," 7.55","83.02","24.53"," 3.85","26.92"," 0.00","60.78","13.73"," 5.88"," 8.00","20.00"," 0.00","30.00"," 0.00"," 4.08"," 0.00"," 2.08","10.42"," 6.25","12.50","18.75"," 2.08"," 0.00","46.81","25.53","48.94","34.04"," 0.00","29.79","21.74","17.39","50.00"," 0.00"," 8.89","24.44"," 8.89"," 0.00"," 9.09"," 2.27"," 4.55"," 4.65"," 0.00"," 2.38","59.52"," 0.00"," 7.32"," 7.32"," 7.32","30.00","12.50","15.00"," 0.00"," 0.00"," 0.00","17.95"," 0.00"," 0.00"," 5.26","10.53"," 2.63"," 0.00","13.51","16.22"," 5.56"," 0.00","58.33"," 2.78","19.44","16.67","33.33","19.44"," 8.33"," 5.71"," 8.57","17.14","20.59","82.35"," 2.94"," 2.94"," 2.94"," 0.00","29.41","26.47"," 0.00"," 3.03"," 0.00"," 9.09","15.15"," 0.00","46.88"," 3.12","21.88","15.62"," 0.00"," 0.00"," 9.68","23.33"," 0.00","43.33","10.34","10.34","17.24"," 0.00"," 0.00"," 0.00"," 0.00","24.14","10.71"," 0.00","17.86"," 3.70"," 0.00","44.44"," 0.00"," 0.00","23.08","23.08"," 7.69"," 0.00"," 8.00"," 4.00"," 8.00","29.17","73.91","34.78","21.74","21.74"," 0.00","21.74"," 0.00"," 0.00"," 0.00","28.57"," 0.00","45.00"," 0.00"," 0.00"," 5.00","50.00","52.63","52.63","47.37","21.05"," 0.00"," 0.00","44.44"," 0.00"," 0.00","27.78","55.56"," 0.00","11.11"," 5.88","11.76","64.71"," 0.00"," 0.00"," 5.88"," 0.00","26.67","33.33","35.71"," 0.00"," 0.00"," 0.00"," 7.69"," 8.33"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 9.09"," 9.09"," 9.09","90.91"," 0.00"," 0.00"," 0.00"," 0.00","10.00"," 0.00","11.11"," 0.00","11.11"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","40.00"],[" 1.27","15.86"," 0.00"," 0.00"," 0.75"," 0.00","15.45"," 0.00"," 0.00"," 5.79","57.89","34.51","15.18","20.00"," 2.78","17.00"," 1.03","22.68"," 3.23"," 6.74"," 0.00"," 0.00"," 1.16","16.47"," 4.82"," 0.00","24.05"," 2.56"," 9.09"," 0.00"," 9.09","25.68"," 0.00"," 1.43"," 0.00","22.86"," 5.80","17.39"," 0.00"," 0.00"," 5.80"," 7.25"," 7.35"," 7.35"," 0.00"," 8.96"," 8.96"," 0.00","16.67"," 0.00"," 6.15","36.92"," 7.69","20.31"," 1.56"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 3.17"," 6.35"," 0.00","15.87"," 9.68"," 3.23","17.74"," 3.28"," 0.00"," 3.28"," 9.84"," 0.00"," 0.00"," 3.33"," 0.00"," 1.67","10.17"," 5.08"," 0.00"," 8.47"," 0.00"," 0.00","20.69","17.24","20.69"," 0.00"," 0.00","17.54","24.56"," 1.75","21.05","22.81","21.43","39.29"," 0.00","21.82"," 0.00"," 9.09"," 0.00"," 7.41","18.87"," 0.00"," 0.00"," 5.66"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 1.96","12.00"," 0.00"," 0.00"," 0.00"," 2.04"," 4.08"," 0.00"," 4.17"," 2.08"," 0.00"," 0.00"," 6.25","35.42"," 8.33"," 4.26","12.77"," 0.00","36.17"," 0.00"," 0.00"," 0.00","10.87","10.87"," 0.00"," 0.00"," 0.00"," 2.22"," 0.00"," 0.00"," 0.00"," 0.00","25.58"," 2.38"," 0.00"," 2.38"," 2.44","58.54","60.98"," 2.44"," 5.00"," 0.00","40.00"," 0.00"," 0.00"," 5.13"," 2.56"," 0.00"," 0.00","23.68"," 0.00"," 0.00"," 0.00","10.81","10.81","16.67"," 0.00","33.33"," 5.56"," 0.00","13.89","11.11","13.89","13.89"," 0.00","37.14"," 2.86"," 0.00"," 0.00","32.35"," 0.00"," 0.00"," 5.88","14.71"," 0.00"," 0.00","18.18","24.24"," 9.09"," 0.00"," 0.00"," 0.00"," 3.12"," 0.00"," 0.00"," 0.00"," 0.00","29.03"," 0.00","60.00","16.67"," 0.00"," 0.00","27.59"," 0.00"," 0.00","41.38","27.59","24.14","17.86"," 0.00","28.57"," 7.41"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","11.54"," 0.00"," 0.00"," 0.00","16.67","26.09"," 0.00"," 0.00"," 0.00"," 0.00"," 4.35"," 4.55"," 9.09","66.67"," 0.00"," 0.00","30.00","25.00"," 0.00"," 0.00"," 0.00","42.11"," 0.00"," 0.00"," 0.00","26.32"," 5.26"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","35.29","29.41","11.76"," 0.00"," 0.00","40.00"," 0.00"," 0.00","35.71"," 0.00"," 7.14","61.54","23.08","16.67"," 8.33"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","27.27"," 0.00","30.00"," 0.00"," 0.00"," 0.00","33.33"," 0.00","33.33","37.50"," 0.00","42.86"," 0.00"," 0.00"," 0.00"],["28.66"," 0.00"," 0.00","17.29"," 0.00"," 0.00","19.51"," 0.00","38.52"," 0.00"," 0.00","25.66"," 8.04"," 0.00","19.44"," 4.00"," 7.22"," 9.28","34.41"," 2.25"," 9.09"," 0.00"," 0.00"," 0.00"," 0.00","16.05"," 7.59","30.77"," 9.09"," 0.00"," 2.60"," 0.00","30.14","24.29"," 0.00","38.57"," 1.45"," 0.00"," 8.70"," 0.00"," 0.00"," 0.00"," 2.94"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","39.39"," 0.00"," 0.00"," 0.00","50.00"," 1.56"," 0.00"," 0.00"," 3.12"," 0.00"," 0.00"," 0.00"," 4.76"," 0.00"," 0.00"," 0.00","27.42"," 4.84","24.59"," 1.64","16.39"," 0.00"," 0.00"," 3.33"," 0.00","31.67"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 1.69"," 0.00","29.31"," 0.00"," 0.00"," 0.00","49.12"," 0.00"," 0.00","28.07"," 0.00","17.54"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","26.92"," 0.00"," 0.00"," 0.00","11.76","32.00"," 0.00"," 0.00"," 0.00","36.73"," 0.00","34.69","22.92","20.83","10.42"," 0.00"," 0.00"," 0.00"," 0.00"," 2.13"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","23.91"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 6.67","27.27"," 0.00"," 6.82","18.60"," 0.00"," 0.00"," 0.00","39.02"," 2.44"," 0.00"," 0.00"," 2.50","22.50"," 0.00"," 0.00"," 0.00","89.74","25.64","43.59"," 0.00"," 5.26"," 0.00"," 2.63"," 0.00","21.62"," 0.00","25.00"," 0.00"," 0.00","19.44"," 0.00"," 0.00"," 0.00"," 0.00","25.00","22.86"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 9.09","30.30","54.55"," 0.00"," 0.00"," 3.03"," 9.38"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","41.38"," 0.00"," 0.00"," 0.00"," 0.00","34.48"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","37.04"," 3.70","46.15","19.23"," 7.69","11.54","23.08"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","34.78"," 0.00","60.87"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","15.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","22.22","38.89"," 0.00"," 0.00"," 0.00","11.11"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 9.09"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","27.27"," 0.00","10.00"," 0.00","10.00","20.00","11.11"," 0.00"," 0.00"," 0.00"," 0.00","28.57","28.57"," 0.00"," 0.00"],[" 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","25.71"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 6.67"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","42.11"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 3.85"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 8.33"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 4.44"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 8.33"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","55.56"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"],["18.47"," 6.21","11.11","46.62"," 3.01"," 0.00","14.63"," 0.00"," 0.00","23.14"," 4.39","25.66"," 0.00","25.45"," 1.85","32.00"," 0.00","17.53"," 8.60"," 2.25","37.50"," 3.45"," 0.00"," 1.18","56.63"," 0.00","18.99","57.69"," 0.00"," 1.30"," 1.30"," 2.70","26.03"," 0.00","21.43"," 0.00"," 0.00","11.59"," 0.00"," 1.45"," 0.00","20.29"," 0.00","48.53","40.30"," 0.00"," 0.00"," 0.00"," 9.09"," 0.00"," 3.08","23.08"," 3.08"," 0.00","68.75","15.62","43.75"," 1.56","48.44","33.33","12.70"," 3.17","31.75","36.51","32.26","43.55","33.87"," 4.92"," 4.92"," 0.00"," 0.00"," 0.00","21.67","25.00","51.67"," 1.67","37.29"," 0.00"," 0.00"," 0.00","64.41","36.21"," 0.00"," 6.90"," 6.90"," 5.17"," 0.00"," 0.00"," 8.77"," 0.00"," 5.26","12.28","58.93"," 3.57","46.43"," 5.45","18.18"," 0.00","53.70","68.52","60.38","45.28"," 3.77","47.17"," 0.00","15.38"," 0.00"," 0.00","35.29","21.57","40.00","26.00","42.00"," 0.00"," 8.16"," 0.00","65.31","25.00"," 4.17","29.17","47.92","16.67"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","38.30","10.64","41.30","19.57"," 0.00"," 0.00"," 0.00"," 0.00"," 2.22"," 0.00"," 0.00"," 0.00"," 4.55"," 6.98","66.67","73.81","35.71"," 0.00"," 0.00","19.51"," 0.00"," 0.00","52.50"," 0.00"," 5.00","17.50"," 0.00"," 5.13"," 0.00"," 0.00"," 5.26","28.95"," 2.63"," 0.00","51.35","37.84","52.78","38.89"," 8.33","72.22"," 0.00","61.11"," 8.33","19.44"," 0.00","28.57","37.14","51.43","61.76"," 2.94"," 2.94","35.29","35.29","20.59","55.88","20.59","54.55","45.45"," 0.00","78.79","54.55","33.33"," 0.00"," 0.00","18.75","28.12","53.12"," 0.00"," 0.00","70.00"," 0.00","20.00"," 6.90"," 6.90","20.69"," 0.00"," 0.00"," 0.00","24.14","10.34","17.86"," 7.14"," 0.00"," 0.00","44.44"," 3.70","46.15","65.38"," 0.00","23.08","11.54"," 0.00"," 0.00","32.00","44.00","12.50"," 0.00","13.04","34.78"," 0.00"," 0.00"," 0.00"," 0.00","22.73"," 4.76","28.57"," 0.00"," 0.00"," 0.00","35.00","50.00"," 0.00"," 0.00","10.53","10.53"," 0.00"," 0.00","10.53"," 0.00"," 0.00"," 0.00","55.56"," 0.00","44.44","22.22"," 0.00","11.76"," 0.00","23.53","58.82"," 0.00"," 0.00","46.67"," 0.00","14.29","64.29"," 0.00","30.77","38.46"," 0.00"," 0.00"," 0.00"," 8.33","63.64","90.91"," 9.09"," 0.00","90.91","36.36"," 0.00"," 0.00","20.00"," 0.00","90.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","57.14","85.71"," 0.00"],[" 5.10"," 2.07"," 0.00","21.05","42.86","15.38"," 3.25"," 0.00","20.49","38.84"," 0.00"," 0.00"," 0.89","19.09"," 0.00","27.00","21.65"," 1.03"," 0.00","21.35","18.18"," 3.45"," 0.00"," 0.00"," 2.41"," 3.70","11.39"," 1.28"," 5.19","24.68","35.06"," 2.70"," 1.37"," 0.00","28.57"," 0.00","21.74"," 1.45","63.77","44.93"," 0.00"," 1.45","22.06","27.94","11.94"," 0.00","37.31","46.27","30.30","18.18","10.77"," 0.00","32.31","28.12","10.94","32.81","18.75","29.69","18.75","46.03","31.75"," 3.17","36.51"," 0.00","25.81","12.90"," 1.61"," 0.00"," 4.92"," 0.00"," 0.00","18.33","21.67"," 6.67"," 0.00","35.00","16.95","16.95"," 3.39","55.93"," 5.08","46.55"," 1.72"," 0.00","29.31","39.66"," 8.77"," 0.00"," 0.00"," 0.00","14.04"," 0.00"," 0.00"," 0.00","35.71"," 0.00","58.18","16.36","40.74"," 0.00","11.32","47.17"," 1.89"," 1.89","34.62"," 0.00","37.25"," 0.00","43.14","23.53"," 0.00","24.00","54.00","14.00"," 0.00","77.55"," 0.00","18.75","45.83"," 0.00","27.08"," 0.00"," 0.00","29.17","46.81"," 0.00"," 0.00"," 2.13","27.66","36.17","26.09"," 6.52"," 0.00","13.33","20.00","24.44","35.56","51.11"," 4.55","31.82","65.91"," 0.00","30.95","23.81"," 2.38"," 9.76"," 0.00","12.20","31.71"," 0.00"," 0.00"," 0.00"," 2.50","25.00"," 5.13"," 0.00","30.77","28.95"," 7.89"," 0.00"," 2.63","59.46"," 0.00","27.03"," 0.00","55.56"," 0.00"," 0.00","19.44"," 5.56"," 0.00","33.33","19.44","37.14","17.14","25.71","17.65"," 0.00"," 0.00","61.76","38.24"," 2.94"," 0.00","44.12","36.36"," 0.00"," 9.09"," 0.00","27.27","39.39"," 0.00","34.38"," 0.00","34.38","18.75","51.61","38.71"," 6.67"," 0.00"," 3.33"," 0.00","24.14"," 6.90","34.48"," 0.00","24.14","41.38"," 0.00"," 3.57","28.57"," 0.00","22.22","14.81"," 3.70"," 7.69"," 3.85","11.54","11.54"," 3.85"," 0.00","44.00","48.00","28.00"," 4.17"," 0.00","13.04"," 0.00","17.39","39.13"," 8.70"," 9.09","22.73"," 0.00"," 0.00","25.00"," 0.00"," 0.00","65.00","15.00","50.00"," 5.26","36.84","31.58"," 5.26","73.68"," 0.00","55.56"," 0.00"," 5.56","16.67"," 0.00","55.56","27.78","23.53"," 0.00"," 0.00"," 0.00","41.18","41.18"," 0.00","26.67","33.33"," 0.00","35.71"," 7.14"," 0.00"," 7.69"," 0.00","16.67","58.33","75.00","27.27"," 9.09","36.36","36.36"," 0.00","54.55"," 0.00"," 0.00"," 0.00"," 0.00","10.00","30.00","20.00"," 0.00"," 0.00","22.22","12.50","28.57"," 0.00","14.29","14.29","40.00"],["0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.88","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00"],[" 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","31.15"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","17.46"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","28.95"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"],[" 0.00"," 0.00"," 0.74","15.04"," 0.00","34.62"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","31.25"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 3.23","15.73"," 0.00","18.39"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 5.88"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","33.33"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","43.33"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","18.64"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","14.04"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","14.58"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","17.02"," 0.00"," 0.00"," 0.00"," 0.00"," 8.89"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","35.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 9.38"," 0.00"," 0.00","21.88"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 3.45"," 0.00"," 0.00"," 6.90"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 5.56"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","35.71"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"],[" 0.00"," 0.00","45.93"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","22.58"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 3.08"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","18.03"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","10.34"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","30.61"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","19.15"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00","31.25"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 7.69"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"," 0.00"],[157,145,135,133,133,130,123,122,122,121,114,113,112,110,108,100,97,97,93,89,88,87,86,85,83,81,79,78,77,77,77,74,73,70,70,70,69,69,69,69,69,69,68,68,67,67,67,67,66,66,65,65,65,64,64,64,64,64,64,63,63,63,63,63,62,62,62,61,61,61,61,60,60,60,60,60,59,59,59,59,59,58,58,58,58,58,57,57,57,57,57,57,56,56,56,55,55,55,54,54,53,53,53,53,52,52,51,51,51,51,50,50,50,50,49,49,49,48,48,48,48,48,48,48,47,47,47,47,47,47,46,46,46,45,45,45,45,45,44,44,44,43,42,42,42,41,41,41,41,40,40,40,40,40,39,39,39,38,38,38,38,37,37,37,36,36,36,36,36,36,36,36,36,35,35,35,34,34,34,34,34,34,34,34,33,33,33,33,33,33,32,32,32,32,32,31,31,30,30,30,29,29,29,29,29,29,29,29,28,28,28,27,27,27,26,26,26,26,26,26,25,25,25,24,23,23,23,23,23,23,22,22,21,21,20,20,20,20,20,20,19,19,19,19,19,19,18,18,18,18,18,18,18,17,17,17,17,17,17,15,15,15,14,14,14,13,13,12,12,12,12,11,11,11,11,11,11,11,11,10,10,10,10,10,9,9,9,8,7,7,7,7,5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>2-Seam Fastball<\/th>\n      <th>4-Seam Fastball<\/th>\n      <th>Changeup<\/th>\n      <th>Curveball<\/th>\n      <th>Cutter<\/th>\n      <th>Knuckle Curve<\/th>\n      <th>Sinker<\/th>\n      <th>Slider<\/th>\n      <th>Slow Curve<\/th>\n      <th>Slurve<\/th>\n      <th>Splitter<\/th>\n      <th>Sweeper<\/th>\n      <th>pitch.count<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5,6,7,8,9,10,11,12,13]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
